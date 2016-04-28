@@ -30,20 +30,23 @@ fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
 [df_piece, df, losses_piece, losses] = separate_data(df, losses, .2);
 
 % Realiza operacoes nas features, removendo e criando novas no subset de selecao
-[~, ids1, ids2, ids3] = featurize(df_piece, (losses_piece > 0));
+[~, ids1, ids2] = featurize(df_piece, (losses_piece > 0));
 
 % Remove features e as cria na base de treinamento
-df = reproduce(df, ids1, ids2, ids3);
+dfx = reproduce(df, ids1, ids2);
+
+% Limpando dados
+dfx = post_cleaning(dfx);
+
+% Normalizando dados
+dfx = normalize(dfx);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
-[training, testing, training_labels, labels] = separate_data(df, losses, .3);
+[training, testing, training_labels, labels] = separate_data(dfx, losses, .3);
 
 training_labels_bool = training_labels > 0;
 labels_bool = labels > 0;
-
-training = normalize(training);
-testing = normalize(testing);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CLASSIFICADORES
