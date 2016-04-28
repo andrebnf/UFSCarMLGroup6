@@ -3,11 +3,11 @@ function df = reproduce(dataframe, ids1, ids2)
 
   df = dataframe;
 
-  fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
+  ptm(df);
 
   df(:, ids1) = [];
 
-  fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
+  ptm(df);
 
   j = size(df, 2);
 
@@ -17,4 +17,4 @@ function df = reproduce(dataframe, ids1, ids2)
     df(:, j + i) = (df(k(1)) - df(k(2))) .^ 2;
   end
 
-  fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
+  ptm(df);

@@ -21,7 +21,7 @@ fprintf('Carregando os dados...\n\n');
 
 [df, losses] = importfile('train_v2.csv', 2, 100);
 
-fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
+ptm(df);
 
 % Limpeza inicial
 [df, losses] = initial_cleaning(df, losses);
@@ -35,11 +35,14 @@ fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
 % Remove features e as cria na base de treinamento
 dfx = reproduce(df, ids1, ids2);
 
-% Limpando dados
-dfx = post_cleaning(dfx);
-
 % Normalizando dados
+fprintf('Normalizando dados...\n\n');
 dfx = normalize(dfx);
+
+% Limpando dados
+fprintf('Removendo colunas de desvio <= 0 ou com dados invalidos...\n\n');
+dfx = post_cleaning(dfx);
+ptm(dfx);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
