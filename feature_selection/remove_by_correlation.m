@@ -1,4 +1,4 @@
-function df = remove_by_correlation(dataframe, labels, percentile)
+function [df, ids] = remove_by_correlation(dataframe, labels, percentile)
   df = dataframe;
 
   % Calcula correlacoes
@@ -8,8 +8,10 @@ function df = remove_by_correlation(dataframe, labels, percentile)
   correlations(isnan(correlations)) = [];
 
   % Ordena as correlacoes
-  [correlations, indexes] = sort(correlations, 'ascend');
+  [correlations, ids] = sort(correlations, 'ascend');
 
   limit = floor(length(correlations) * percentile);
 
-  df = df(:, indexes(1 : limit));
+  df = df(:, ids(1 : limit));
+
+  ids = ids(limit + 1 : end);

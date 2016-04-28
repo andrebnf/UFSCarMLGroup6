@@ -11,35 +11,28 @@ clear ; close all; clc
 
 %% Carrega funcoes de selecao de atributos
 addpath('./feature_selection');
+addpath('./util');
+addpath('./algs/knn');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
 [df, losses] = importfile('train_v2.csv', 2, 100);
 
-fprintf(strcat(num2str(size(df, 1)), 'x', num2str(size(df, 2)), ' carregado\n\n'));
+fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
 
-fprintf('Limpando os dados...\n\n');
-% Remove a coluna de ids
-df(:, 1) = [];
+% Limpeza inicial
+[df, losses] = initial_cleaning(df, losses);
 
-% Remove colunas duplicadas para evitar bias
-df = unique(df', 'rows')';
+% Separa dados para selecao de features e treinamento
+[df_piece, df, losses_piece, losses] = separate_data(df, losses, .2);
 
-% Remove as linhas que tem valores NaN
-losses = losses(~any(isnan(df), 2), :);
-df = df(~any(isnan(df), 2), :);
+% Coluna auxiliar com dados booleanos
+losses_bool = (losses > 0);
+losses_piece_bool = (losses_piece > 0);
 
-%% Remove todas as colunas com desvio padrao = 0
-fprintf('Removendo todas as colunas com desvio padrao = 0...\n\n');
+% Realiza operacoes nas features, removendo e criando novas no subset de selecao
+[~, ids1, ids2, ids3] = featurize(df_piece, losses_piece_bool);
 
-df = remove_by_deviation(df, 0);
-
-% Elimina o 1o quartil em termos de relacao com a classe
-fprintf('Elimina o 1o quartil em termos de relacao com a classe...\n\n');
-
-df = remove_by_correlation(df, losses, .75);
-
-% Cria novas colunas com features de correlacao alta
-fprintf('Criando novas colunas com features de correlacao alta...\n\n');
-df = add_correlated_features(df);
+% Remove features e as cria na base de treinamento
+df = reproduce(df, ids1, ids2, ids3);
