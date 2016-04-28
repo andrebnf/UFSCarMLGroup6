@@ -39,3 +39,7 @@ df = remove_by_deviation(df, 0);
 fprintf('Elimina o 1o quartil em termos de relacao com a classe...\n\n');
 
 df = remove_by_correlation(df, losses, .75);
+
+% Cria novas colunas com features de correlacao alta
+fprintf('Criando novas colunas com features de correlacao alta...\n\n');
+df = add_correlated_features(df);
