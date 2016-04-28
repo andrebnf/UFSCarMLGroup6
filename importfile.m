@@ -85,8 +85,11 @@ end
 
 
 %% Exclude rows with non-numeric cells
-I = ~all(cellfun(@(x) (isnumeric(x) || islogical(x)) && ~isnan(x),raw),2); % Find rows with non-numeric cells
-raw(I,:) = [];
+% I = ~all(cellfun(@(x) (isnumeric(x) || islogical(x)) && ~isnan(x),raw),2); % Find rows with non-numeric cells
+% raw(I,:) = [];
+
+numind = cellfun(@(x) (isnumeric(x) || islogical(x)), raw);
+raw(~numind) = {NaN};
 
 %% Create output variable
 trainv2 = [];

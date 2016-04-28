@@ -17,8 +17,15 @@ fprintf('Carregando os dados...\n\n');
 
 [df, losses] = importfile('train_v2.csv', 2, 100);
 
-%% Remove a coluna de ids
+fprintf(strcat(num2str(size(df, 1)), 'x', num2str(size(df, 2)), ' carregado\n\n'));
+
+fprintf('Limpando os dados...\n\n');
+% Remove a coluna de ids
 df(:, 1) = [];
+
+% Remove as linhas que tem valores NaN
+losses = losses(~any(isnan(df), 2), :);
+df = df(~any(isnan(df), 2), :);
 
 %% Remove todas as colunas com desvio padrao < 0.1
 fprintf('Removendo todas as colunas com desvio padrao < 0.1...\n\n');
