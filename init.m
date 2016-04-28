@@ -14,11 +14,12 @@ clear ; close all; clc
 addpath('./feature_selection');
 addpath('./util');
 addpath('./algs/knn');
+addpath('./algs/reglog');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.csv', 2, 1000);
+[df, losses] = importfile('train_v2.csv', 2, 100);
 
 fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
 
@@ -34,11 +35,15 @@ fprintf('\t- matriz com %dx%d\n\n', size(df, 1), size(df, 2));
 % Remove features e as cria na base de treinamento
 df = reproduce(df, ids1, ids2, ids3);
 
-% TODO: 10-fold cross-validation
-
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
 [training, testing, training_labels, labels] = separate_data(df, losses, .3);
+
+training_labels_bool = training_labels > 0;
+labels_bool = labels > 0;
+
+training = normalize(training);
+testing = normalize(testing);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CLASSIFICADORES
@@ -48,10 +53,18 @@ disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 disp('  KNN');
 disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 
-% TODO: grid search para o K
-
 fprintf('\nRodando o KNN...\n\n');
-knn_labels = apply_knn(testing, training, training_labels, 5);
+knn_labels = apply_knn(testing, training, training_labels_bool, 5);
 
 fprintf('Estatisticas para o KNN:\n\n');
-disp(evaluate(knn_labels, labels));
+disp(evaluate(knn_labels, labels_bool));
+
+disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+disp('  Regressao logistica');
+disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+
+fprintf('\nRodando a regressao logistica...\n\n');
+reglog_labels = apply_reglog(testing, training, training_labels_bool);
+
+fprintf('Estatisticas para a regressao logistica:\n\n');
+disp(evaluate(reglog_labels, labels_bool));
