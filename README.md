@@ -8,3 +8,5 @@ Repositório do projeto de AM Grupo 6.
 ## Referências
 
 [An Introduction to Variable and Feature Selection](http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf)
+
+[Feature Selection](http://www.ntu.edu.sg/home/ssho/CPBook/Chapter6.pdf)

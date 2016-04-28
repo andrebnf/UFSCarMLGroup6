@@ -9,7 +9,14 @@
 %% Inicializacao
 clear ; close all; clc
 
-% Carrega os dados do arquivo
+%% Carrega funcoes de selecao de atributos
+addpath('./feature_selection');
+
+%% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-df = importfile('train_v2.csv', 2, 1000);
+df = importfile('train_v2.csv', 2, 100);
+
+%% Ajusta colunas
+losses = df.loss;
+df.loss = [];

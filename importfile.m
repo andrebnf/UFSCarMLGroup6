@@ -62,7 +62,7 @@ for col=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27
         try
             result = regexp(rawData{row}, regexstr, 'names');
             numbers = result.numbers;
-            
+
             % Detected commas in non-thousand locations.
             invalidThousandsSeparator = false;
             if any(numbers==',');
@@ -90,7 +90,7 @@ raw(I,:) = [];
 
 %% Create output variable
 trainv2 = table;
-trainv2.id = cell2mat(raw(:, 1));
+% trainv2.id = cell2mat(raw(:, 1));
 trainv2.f1 = cell2mat(raw(:, 2));
 trainv2.f2 = cell2mat(raw(:, 3));
 trainv2.f3 = cell2mat(raw(:, 4));
@@ -861,4 +861,3 @@ trainv2.f776 = cell2mat(raw(:, 768));
 trainv2.f777 = cell2mat(raw(:, 769));
 trainv2.f778 = cell2mat(raw(:, 770));
 trainv2.loss = cell2mat(raw(:, 771));
-
