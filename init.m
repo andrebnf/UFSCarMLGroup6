@@ -45,22 +45,8 @@ labels_bool = labels > 0;
 % CLASSIFICADORES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-disp('  KNN');
-disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+run_method('KNN', labels_bool, ...
+  @()(apply_knn(testing, training, training_labels_bool, 5)));
 
-fprintf('\nRodando o KNN...\n\n');
-knn_labels = apply_knn(testing, training, training_labels_bool, 5);
-
-fprintf('Estatisticas para o KNN:\n\n');
-disp(evaluate(knn_labels, labels_bool));
-
-disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-disp('  Regressao logistica');
-disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
-
-fprintf('\nRodando a regressao logistica...\n\n');
-reglog_labels = apply_reglog(testing, training, training_labels_bool);
-
-fprintf('Estatisticas para a regressao logistica:\n\n');
-disp(evaluate(reglog_labels, labels_bool));
+run_method('Regressao logistica', labels_bool, ...
+  @()(apply_reglog(testing, training, training_labels_bool)));
