@@ -33,7 +33,6 @@ df = featurize(df, (losses > 0));
 fprintf('Normalizando dados...\n\n');
 dfx = normalize(df);
 
-
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
 [testing, training, labels, training_labels] = separate_data(dfx, losses, .3);
