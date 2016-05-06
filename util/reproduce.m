@@ -11,10 +11,10 @@ function df = reproduce(dataframe, ids1, ids2)
 
   j = size(df, 2);
 
-  for i = 1 : length(ids2)
+  for i = 1 : size(ids2, 1)
     k = ids2(i, :);
 
-    df(:, j + i) = (df(k(1)) - df(k(2))) .^ 2;
+    df(:, j + i) = (df(:, k(1)) - df(:, k(2))) .^ 2;
   end
 
   ptm(df);

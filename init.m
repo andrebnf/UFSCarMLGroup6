@@ -19,30 +19,20 @@ addpath('./algs/reglog');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.csv', 2, 100);
+[df, losses] = importfile('train_v2.csv', 2, 2000);
 
 ptm(df);
 
 % Limpeza inicial
 [df, losses] = initial_cleaning(df, losses);
 
-% Separa dados para selecao de features e treinamento
-[df_piece, df, losses_piece, losses] = separate_data(df, losses, .2);
-
 % Realiza operacoes nas features, removendo e criando novas no subset de selecao
-[~, ids1, ids2] = featurize(df_piece, (losses_piece > 0));
-
-% Remove features e as cria na base de treinamento
-dfx = reproduce(df, ids1, ids2);
+df = featurize(df, (losses > 0));
 
 % Normalizando dados
 fprintf('Normalizando dados...\n\n');
-dfx = normalize(dfx);
+dfx = normalize(df);
 
-% Limpando dados
-fprintf('Removendo colunas de desvio <= 0 ou com dados invalidos...\n\n');
-dfx = post_cleaning(dfx);
-ptm(dfx);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
