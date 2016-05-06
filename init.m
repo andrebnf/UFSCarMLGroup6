@@ -19,7 +19,7 @@ addpath('./algs/reglog');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.csv', 2, 2000);
+[df, losses] = importfile('train_v2.csv', 2, 100);
 
 ptm(df);
 
@@ -36,7 +36,7 @@ dfx = normalize(df);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
-[training, testing, training_labels, labels] = separate_data(dfx, losses, .3);
+[testing, training, labels, training_labels] = separate_data(dfx, losses, .3);
 
 training_labels_bool = training_labels > 0;
 labels_bool = labels > 0;
