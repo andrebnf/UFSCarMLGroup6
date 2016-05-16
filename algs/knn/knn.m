@@ -24,7 +24,7 @@ ind_viz = ones(K,1);  % Inicializa indices (linhas) em X das K amostras mais
 
 
 % ====================== ESCREVA O SEU CODIGO AQUI ========================
-% Instrucoes: Implemente o metodo dos K-vizinhos mais proximos. Primeiro, 
+% Instrucoes: Implemente o metodo dos K-vizinhos mais proximos. Primeiro,
 %             eh preciso calcular a distancia entre x e cada amostra de X.
 %             Depois, encontre os K-vizinhos mais proximos e use voto
 %             majoritario para definir o rotulo de x.
@@ -40,7 +40,11 @@ D = distancia(x, X);
 
 [~, I] = sort(D);
 
-ind_viz = I(1 : K)';
+try
+  ind_viz = I(1 : K)';
+catch
+  ind_viz = I(1 : end)';
+end
 
 y = mode(Y(ind_viz));
 
