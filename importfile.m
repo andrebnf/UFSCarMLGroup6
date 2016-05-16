@@ -93,776 +93,778 @@ raw(~numind) = {NaN};
 
 %% Create output variable
 trainv2 = [];
-trainv2(:, 1) = cell2mat(raw(:, 1)); % ids
 
-trainv2(:, 2) = cell2mat(raw(:, 2)); % f1
-trainv2(:, 3) = cell2mat(raw(:, 3)); % f2
-trainv2(:, 4) = cell2mat(raw(:, 4)); % f3
-trainv2(:, 5) = cell2mat(raw(:, 5)); % f4
-trainv2(:, 6) = cell2mat(raw(:, 6)); % f5
-trainv2(:, 7) = cell2mat(raw(:, 7)); % f6
-trainv2(:, 8) = cell2mat(raw(:, 8)); % f7
-trainv2(:, 9) = cell2mat(raw(:, 9)); % f8
-trainv2(:, 10) = cell2mat(raw(:, 10)); % f9
-trainv2(:, 11) = cell2mat(raw(:, 11)); % f10
-trainv2(:, 12) = cell2mat(raw(:, 12)); % f13
-trainv2(:, 13) = cell2mat(raw(:, 13)); % f14
-trainv2(:, 14) = cell2mat(raw(:, 14)); % f15
-trainv2(:, 15) = cell2mat(raw(:, 15)); % f16
-trainv2(:, 16) = cell2mat(raw(:, 16)); % f17
-trainv2(:, 17) = cell2mat(raw(:, 17)); % f18
-trainv2(:, 18) = cell2mat(raw(:, 18)); % f19
-trainv2(:, 19) = cell2mat(raw(:, 19)); % f20
-trainv2(:, 20) = cell2mat(raw(:, 20)); % f21
-trainv2(:, 21) = cell2mat(raw(:, 21)); % f22
-trainv2(:, 22) = cell2mat(raw(:, 22)); % f23
-trainv2(:, 23) = cell2mat(raw(:, 23)); % f24
-trainv2(:, 24) = cell2mat(raw(:, 24)); % f25
-trainv2(:, 25) = cell2mat(raw(:, 25)); % f26
-trainv2(:, 26) = cell2mat(raw(:, 26)); % f27
-trainv2(:, 27) = cell2mat(raw(:, 27)); % f28
-trainv2(:, 28) = cell2mat(raw(:, 28)); % f29
-trainv2(:, 29) = cell2mat(raw(:, 29)); % f30
-trainv2(:, 30) = cell2mat(raw(:, 30)); % f31
-trainv2(:, 31) = cell2mat(raw(:, 31)); % f32
-trainv2(:, 32) = cell2mat(raw(:, 32)); % f33
-trainv2(:, 33) = cell2mat(raw(:, 33)); % f34
-trainv2(:, 34) = cell2mat(raw(:, 34)); % f35
-trainv2(:, 35) = cell2mat(raw(:, 35)); % f36
-trainv2(:, 36) = cell2mat(raw(:, 36)); % f37
-trainv2(:, 37) = cell2mat(raw(:, 37)); % f38
-trainv2(:, 38) = cell2mat(raw(:, 38)); % f39
-trainv2(:, 39) = cell2mat(raw(:, 39)); % f40
-trainv2(:, 40) = cell2mat(raw(:, 40)); % f41
-trainv2(:, 41) = cell2mat(raw(:, 41)); % f42
-trainv2(:, 42) = cell2mat(raw(:, 42)); % f43
-trainv2(:, 43) = cell2mat(raw(:, 43)); % f44
-trainv2(:, 44) = cell2mat(raw(:, 44)); % f45
-trainv2(:, 45) = cell2mat(raw(:, 45)); % f46
-trainv2(:, 46) = cell2mat(raw(:, 46)); % f47
-trainv2(:, 47) = cell2mat(raw(:, 47)); % f48
-trainv2(:, 48) = cell2mat(raw(:, 48)); % f49
-trainv2(:, 49) = cell2mat(raw(:, 49)); % f50
-trainv2(:, 50) = cell2mat(raw(:, 50)); % f51
-trainv2(:, 51) = cell2mat(raw(:, 51)); % f52
-trainv2(:, 52) = cell2mat(raw(:, 52)); % f53
-trainv2(:, 53) = cell2mat(raw(:, 53)); % f54
-trainv2(:, 54) = cell2mat(raw(:, 54)); % f55
-trainv2(:, 55) = cell2mat(raw(:, 55)); % f56
-trainv2(:, 56) = cell2mat(raw(:, 56)); % f57
-trainv2(:, 57) = cell2mat(raw(:, 57)); % f58
-trainv2(:, 58) = cell2mat(raw(:, 58)); % f59
-trainv2(:, 59) = cell2mat(raw(:, 59)); % f60
-trainv2(:, 60) = cell2mat(raw(:, 60)); % f61
-trainv2(:, 61) = cell2mat(raw(:, 61)); % f62
-trainv2(:, 62) = cell2mat(raw(:, 62)); % f63
-trainv2(:, 63) = cell2mat(raw(:, 63)); % f64
-trainv2(:, 64) = cell2mat(raw(:, 64)); % f65
-trainv2(:, 65) = cell2mat(raw(:, 65)); % f66
-trainv2(:, 66) = cell2mat(raw(:, 66)); % f67
-trainv2(:, 67) = cell2mat(raw(:, 67)); % f68
-trainv2(:, 68) = cell2mat(raw(:, 68)); % f69
-trainv2(:, 69) = cell2mat(raw(:, 69)); % f70
-trainv2(:, 70) = cell2mat(raw(:, 70)); % f71
-trainv2(:, 71) = cell2mat(raw(:, 71)); % f72
-trainv2(:, 72) = cell2mat(raw(:, 72)); % f73
-trainv2(:, 73) = cell2mat(raw(:, 73)); % f74
-trainv2(:, 74) = cell2mat(raw(:, 74)); % f75
-trainv2(:, 75) = cell2mat(raw(:, 75)); % f76
-trainv2(:, 76) = cell2mat(raw(:, 76)); % f77
-trainv2(:, 77) = cell2mat(raw(:, 77)); % f78
-trainv2(:, 78) = cell2mat(raw(:, 78)); % f79
-trainv2(:, 79) = cell2mat(raw(:, 79)); % f80
-trainv2(:, 80) = cell2mat(raw(:, 80)); % f81
-trainv2(:, 81) = cell2mat(raw(:, 81)); % f82
-trainv2(:, 82) = cell2mat(raw(:, 82)); % f83
-trainv2(:, 83) = cell2mat(raw(:, 83)); % f84
-trainv2(:, 84) = cell2mat(raw(:, 84)); % f85
-trainv2(:, 85) = cell2mat(raw(:, 85)); % f86
-trainv2(:, 86) = cell2mat(raw(:, 86)); % f87
-trainv2(:, 87) = cell2mat(raw(:, 87)); % f88
-trainv2(:, 88) = cell2mat(raw(:, 88)); % f89
-trainv2(:, 89) = cell2mat(raw(:, 89)); % f90
-trainv2(:, 90) = cell2mat(raw(:, 90)); % f91
-trainv2(:, 91) = cell2mat(raw(:, 91)); % f92
-trainv2(:, 92) = cell2mat(raw(:, 92)); % f93
-trainv2(:, 93) = cell2mat(raw(:, 93)); % f94
-trainv2(:, 94) = cell2mat(raw(:, 94)); % f95
-trainv2(:, 95) = cell2mat(raw(:, 95)); % f96
-trainv2(:, 96) = cell2mat(raw(:, 96)); % f97
-trainv2(:, 97) = cell2mat(raw(:, 97)); % f98
-trainv2(:, 98) = cell2mat(raw(:, 98)); % f99
-trainv2(:, 99) = cell2mat(raw(:, 99)); % f100
-trainv2(:, 100) = cell2mat(raw(:, 100)); % f101
-trainv2(:, 101) = cell2mat(raw(:, 101)); % f102
-trainv2(:, 102) = cell2mat(raw(:, 102)); % f103
-trainv2(:, 103) = cell2mat(raw(:, 103)); % f104
-trainv2(:, 104) = cell2mat(raw(:, 104)); % f105
-trainv2(:, 105) = cell2mat(raw(:, 105)); % f106
-trainv2(:, 106) = cell2mat(raw(:, 106)); % f107
-trainv2(:, 107) = cell2mat(raw(:, 107)); % f108
-trainv2(:, 108) = cell2mat(raw(:, 108)); % f109
-trainv2(:, 109) = cell2mat(raw(:, 109)); % f110
-trainv2(:, 110) = cell2mat(raw(:, 110)); % f111
-trainv2(:, 111) = cell2mat(raw(:, 111)); % f112
-trainv2(:, 112) = cell2mat(raw(:, 112)); % f113
-trainv2(:, 113) = cell2mat(raw(:, 113)); % f114
-trainv2(:, 114) = cell2mat(raw(:, 114)); % f115
-trainv2(:, 115) = cell2mat(raw(:, 115)); % f116
-trainv2(:, 116) = cell2mat(raw(:, 116)); % f117
-trainv2(:, 117) = cell2mat(raw(:, 117)); % f118
-trainv2(:, 118) = cell2mat(raw(:, 118)); % f119
-trainv2(:, 119) = cell2mat(raw(:, 119)); % f120
-trainv2(:, 120) = cell2mat(raw(:, 120)); % f121
-trainv2(:, 121) = cell2mat(raw(:, 121)); % f122
-trainv2(:, 122) = cell2mat(raw(:, 122)); % f123
-trainv2(:, 123) = cell2mat(raw(:, 123)); % f124
-trainv2(:, 124) = cell2mat(raw(:, 124)); % f125
-trainv2(:, 125) = cell2mat(raw(:, 125)); % f126
-trainv2(:, 126) = cell2mat(raw(:, 126)); % f127
-trainv2(:, 127) = cell2mat(raw(:, 127)); % f128
-trainv2(:, 128) = cell2mat(raw(:, 128)); % f129
-trainv2(:, 129) = cell2mat(raw(:, 129)); % f130
-trainv2(:, 130) = cell2mat(raw(:, 130)); % f131
-trainv2(:, 131) = cell2mat(raw(:, 131)); % f132
-trainv2(:, 132) = cell2mat(raw(:, 132)); % f133
-trainv2(:, 133) = cell2mat(raw(:, 133)); % f134
-trainv2(:, 134) = cell2mat(raw(:, 134)); % f135
-trainv2(:, 135) = cell2mat(raw(:, 135)); % f136
-trainv2(:, 136) = cell2mat(raw(:, 136)); % f137
-trainv2(:, 137) = cell2mat(raw(:, 137)); % f138
-trainv2(:, 138) = cell2mat(raw(:, 138)); % f139
-trainv2(:, 139) = cell2mat(raw(:, 139)); % f140
-trainv2(:, 140) = cell2mat(raw(:, 140)); % f141
-trainv2(:, 141) = cell2mat(raw(:, 141)); % f142
-trainv2(:, 142) = cell2mat(raw(:, 142)); % f143
-trainv2(:, 143) = cell2mat(raw(:, 143)); % f144
-trainv2(:, 144) = cell2mat(raw(:, 144)); % f145
-trainv2(:, 145) = cell2mat(raw(:, 145)); % f146
-trainv2(:, 146) = cell2mat(raw(:, 146)); % f147
-trainv2(:, 147) = cell2mat(raw(:, 147)); % f148
-trainv2(:, 148) = cell2mat(raw(:, 148)); % f149
-trainv2(:, 149) = cell2mat(raw(:, 149)); % f150
-trainv2(:, 150) = cell2mat(raw(:, 150)); % f151
-trainv2(:, 151) = cell2mat(raw(:, 151)); % f152
-trainv2(:, 152) = cell2mat(raw(:, 152)); % f153
-trainv2(:, 153) = cell2mat(raw(:, 153)); % f154
-trainv2(:, 154) = cell2mat(raw(:, 154)); % f155
-trainv2(:, 155) = cell2mat(raw(:, 155)); % f156
-trainv2(:, 156) = cell2mat(raw(:, 156)); % f157
-trainv2(:, 157) = cell2mat(raw(:, 157)); % f158
-trainv2(:, 158) = cell2mat(raw(:, 158)); % f159
-trainv2(:, 159) = cell2mat(raw(:, 159)); % f160
-trainv2(:, 160) = cell2mat(raw(:, 160)); % f161
-trainv2(:, 161) = cell2mat(raw(:, 161)); % f162
-trainv2(:, 162) = cell2mat(raw(:, 162)); % f163
-trainv2(:, 163) = cell2mat(raw(:, 163)); % f164
-trainv2(:, 164) = cell2mat(raw(:, 164)); % f165
-trainv2(:, 165) = cell2mat(raw(:, 165)); % f166
-trainv2(:, 166) = cell2mat(raw(:, 166)); % f167
-trainv2(:, 167) = cell2mat(raw(:, 167)); % f168
-trainv2(:, 168) = cell2mat(raw(:, 168)); % f169
-trainv2(:, 169) = cell2mat(raw(:, 169)); % f170
-trainv2(:, 170) = cell2mat(raw(:, 170)); % f171
-trainv2(:, 171) = cell2mat(raw(:, 171)); % f172
-trainv2(:, 172) = cell2mat(raw(:, 172)); % f173
-trainv2(:, 173) = cell2mat(raw(:, 173)); % f174
-trainv2(:, 174) = cell2mat(raw(:, 174)); % f175
-trainv2(:, 175) = cell2mat(raw(:, 175)); % f176
-trainv2(:, 176) = cell2mat(raw(:, 176)); % f177
-trainv2(:, 177) = cell2mat(raw(:, 177)); % f178
-trainv2(:, 178) = cell2mat(raw(:, 178)); % f179
-trainv2(:, 179) = cell2mat(raw(:, 179)); % f180
-trainv2(:, 180) = cell2mat(raw(:, 180)); % f181
-trainv2(:, 181) = cell2mat(raw(:, 181)); % f182
-trainv2(:, 182) = cell2mat(raw(:, 182)); % f183
-trainv2(:, 183) = cell2mat(raw(:, 183)); % f184
-trainv2(:, 184) = cell2mat(raw(:, 184)); % f185
-trainv2(:, 185) = cell2mat(raw(:, 185)); % f186
-trainv2(:, 186) = cell2mat(raw(:, 186)); % f187
-trainv2(:, 187) = cell2mat(raw(:, 187)); % f188
-trainv2(:, 188) = cell2mat(raw(:, 188)); % f189
-trainv2(:, 189) = cell2mat(raw(:, 189)); % f190
-trainv2(:, 190) = cell2mat(raw(:, 190)); % f191
-trainv2(:, 191) = cell2mat(raw(:, 191)); % f192
-trainv2(:, 192) = cell2mat(raw(:, 192)); % f193
-trainv2(:, 193) = cell2mat(raw(:, 193)); % f194
-trainv2(:, 194) = cell2mat(raw(:, 194)); % f195
-trainv2(:, 195) = cell2mat(raw(:, 195)); % f196
-trainv2(:, 196) = cell2mat(raw(:, 196)); % f197
-trainv2(:, 197) = cell2mat(raw(:, 197)); % f198
-trainv2(:, 198) = cell2mat(raw(:, 198)); % f199
-trainv2(:, 199) = cell2mat(raw(:, 199)); % f200
-trainv2(:, 200) = cell2mat(raw(:, 200)); % f201
-trainv2(:, 201) = cell2mat(raw(:, 201)); % f202
-trainv2(:, 202) = cell2mat(raw(:, 202)); % f203
-trainv2(:, 203) = cell2mat(raw(:, 203)); % f204
-trainv2(:, 204) = cell2mat(raw(:, 204)); % f205
-trainv2(:, 205) = cell2mat(raw(:, 205)); % f206
-trainv2(:, 206) = cell2mat(raw(:, 206)); % f207
-trainv2(:, 207) = cell2mat(raw(:, 207)); % f208
-trainv2(:, 208) = cell2mat(raw(:, 208)); % f209
-trainv2(:, 209) = cell2mat(raw(:, 209)); % f210
-trainv2(:, 210) = cell2mat(raw(:, 210)); % f211
-trainv2(:, 211) = cell2mat(raw(:, 211)); % f212
-trainv2(:, 212) = cell2mat(raw(:, 212)); % f213
-trainv2(:, 213) = cell2mat(raw(:, 213)); % f214
-trainv2(:, 214) = cell2mat(raw(:, 214)); % f215
-trainv2(:, 215) = cell2mat(raw(:, 215)); % f216
-trainv2(:, 216) = cell2mat(raw(:, 216)); % f217
-trainv2(:, 217) = cell2mat(raw(:, 217)); % f218
-trainv2(:, 218) = cell2mat(raw(:, 218)); % f219
-trainv2(:, 219) = cell2mat(raw(:, 219)); % f220
-trainv2(:, 220) = cell2mat(raw(:, 220)); % f221
-trainv2(:, 221) = cell2mat(raw(:, 221)); % f222
-trainv2(:, 222) = cell2mat(raw(:, 222)); % f223
-trainv2(:, 223) = cell2mat(raw(:, 223)); % f224
-trainv2(:, 224) = cell2mat(raw(:, 224)); % f225
-trainv2(:, 225) = cell2mat(raw(:, 225)); % f226
-trainv2(:, 226) = cell2mat(raw(:, 226)); % f227
-trainv2(:, 227) = cell2mat(raw(:, 227)); % f228
-trainv2(:, 228) = cell2mat(raw(:, 228)); % f229
-trainv2(:, 229) = cell2mat(raw(:, 229)); % f230
-trainv2(:, 230) = cell2mat(raw(:, 230)); % f231
-trainv2(:, 231) = cell2mat(raw(:, 231)); % f232
-trainv2(:, 232) = cell2mat(raw(:, 232)); % f233
-trainv2(:, 233) = cell2mat(raw(:, 233)); % f234
-trainv2(:, 234) = cell2mat(raw(:, 234)); % f235
-trainv2(:, 235) = cell2mat(raw(:, 235)); % f236
-trainv2(:, 236) = cell2mat(raw(:, 236)); % f237
-trainv2(:, 237) = cell2mat(raw(:, 237)); % f238
-trainv2(:, 238) = cell2mat(raw(:, 238)); % f239
-trainv2(:, 239) = cell2mat(raw(:, 239)); % f240
-trainv2(:, 240) = cell2mat(raw(:, 240)); % f241
-trainv2(:, 241) = cell2mat(raw(:, 241)); % f242
-trainv2(:, 242) = cell2mat(raw(:, 242)); % f243
-trainv2(:, 243) = cell2mat(raw(:, 243)); % f244
-trainv2(:, 244) = cell2mat(raw(:, 244)); % f245
-trainv2(:, 245) = cell2mat(raw(:, 245)); % f246
-trainv2(:, 246) = cell2mat(raw(:, 246)); % f247
-trainv2(:, 247) = cell2mat(raw(:, 247)); % f248
-trainv2(:, 248) = cell2mat(raw(:, 248)); % f249
-trainv2(:, 249) = cell2mat(raw(:, 249)); % f250
-trainv2(:, 250) = cell2mat(raw(:, 250)); % f251
-trainv2(:, 251) = cell2mat(raw(:, 251)); % f252
-trainv2(:, 252) = cell2mat(raw(:, 252)); % f253
-trainv2(:, 253) = cell2mat(raw(:, 253)); % f254
-trainv2(:, 254) = cell2mat(raw(:, 254)); % f255
-trainv2(:, 255) = cell2mat(raw(:, 255)); % f256
-trainv2(:, 256) = cell2mat(raw(:, 256)); % f257
-trainv2(:, 257) = cell2mat(raw(:, 257)); % f258
-trainv2(:, 258) = cell2mat(raw(:, 258)); % f259
-trainv2(:, 259) = cell2mat(raw(:, 259)); % f260
-trainv2(:, 260) = cell2mat(raw(:, 260)); % f261
-trainv2(:, 261) = cell2mat(raw(:, 261)); % f262
-trainv2(:, 262) = cell2mat(raw(:, 262)); % f263
-trainv2(:, 263) = cell2mat(raw(:, 263)); % f264
-trainv2(:, 264) = cell2mat(raw(:, 264)); % f265
-trainv2(:, 265) = cell2mat(raw(:, 265)); % f266
-trainv2(:, 266) = cell2mat(raw(:, 266)); % f267
-trainv2(:, 267) = cell2mat(raw(:, 267)); % f268
-trainv2(:, 268) = cell2mat(raw(:, 268)); % f269
-trainv2(:, 269) = cell2mat(raw(:, 269)); % f270
-trainv2(:, 270) = cell2mat(raw(:, 270)); % f271
-trainv2(:, 271) = cell2mat(raw(:, 271)); % f272
-trainv2(:, 272) = cell2mat(raw(:, 272)); % f273
-trainv2(:, 273) = cell2mat(raw(:, 273)); % f274
-trainv2(:, 274) = cell2mat(raw(:, 274)); % f275
-trainv2(:, 275) = cell2mat(raw(:, 275)); % f276
-trainv2(:, 276) = cell2mat(raw(:, 276)); % f277
-trainv2(:, 277) = cell2mat(raw(:, 277)); % f278
-trainv2(:, 278) = cell2mat(raw(:, 278)); % f279
-trainv2(:, 279) = cell2mat(raw(:, 279)); % f280
-trainv2(:, 280) = cell2mat(raw(:, 280)); % f281
-trainv2(:, 281) = cell2mat(raw(:, 281)); % f282
-trainv2(:, 282) = cell2mat(raw(:, 282)); % f283
-trainv2(:, 283) = cell2mat(raw(:, 283)); % f284
-trainv2(:, 284) = cell2mat(raw(:, 284)); % f285
-trainv2(:, 285) = cell2mat(raw(:, 285)); % f286
-trainv2(:, 286) = cell2mat(raw(:, 286)); % f287
-trainv2(:, 287) = cell2mat(raw(:, 287)); % f288
-trainv2(:, 288) = cell2mat(raw(:, 288)); % f289
-trainv2(:, 289) = cell2mat(raw(:, 289)); % f290
-trainv2(:, 290) = cell2mat(raw(:, 290)); % f291
-trainv2(:, 291) = cell2mat(raw(:, 291)); % f292
-trainv2(:, 292) = cell2mat(raw(:, 292)); % f293
-trainv2(:, 293) = cell2mat(raw(:, 293)); % f294
-trainv2(:, 294) = cell2mat(raw(:, 294)); % f295
-trainv2(:, 295) = cell2mat(raw(:, 295)); % f296
-trainv2(:, 296) = cell2mat(raw(:, 296)); % f297
-trainv2(:, 297) = cell2mat(raw(:, 297)); % f298
-trainv2(:, 298) = cell2mat(raw(:, 298)); % f299
-trainv2(:, 299) = cell2mat(raw(:, 299)); % f300
-trainv2(:, 300) = cell2mat(raw(:, 300)); % f301
-trainv2(:, 301) = cell2mat(raw(:, 301)); % f302
-trainv2(:, 302) = cell2mat(raw(:, 302)); % f303
-trainv2(:, 303) = cell2mat(raw(:, 303)); % f304
-trainv2(:, 304) = cell2mat(raw(:, 304)); % f305
-trainv2(:, 305) = cell2mat(raw(:, 305)); % f306
-trainv2(:, 306) = cell2mat(raw(:, 306)); % f307
-trainv2(:, 307) = cell2mat(raw(:, 307)); % f308
-trainv2(:, 308) = cell2mat(raw(:, 308)); % f309
-trainv2(:, 309) = cell2mat(raw(:, 309)); % f310
-trainv2(:, 310) = cell2mat(raw(:, 310)); % f311
-trainv2(:, 311) = cell2mat(raw(:, 311)); % f312
-trainv2(:, 312) = cell2mat(raw(:, 312)); % f313
-trainv2(:, 313) = cell2mat(raw(:, 313)); % f314
-trainv2(:, 314) = cell2mat(raw(:, 314)); % f315
-trainv2(:, 315) = cell2mat(raw(:, 315)); % f316
-trainv2(:, 316) = cell2mat(raw(:, 316)); % f317
-trainv2(:, 317) = cell2mat(raw(:, 317)); % f318
-trainv2(:, 318) = cell2mat(raw(:, 318)); % f319
-trainv2(:, 319) = cell2mat(raw(:, 319)); % f320
-trainv2(:, 320) = cell2mat(raw(:, 320)); % f321
-trainv2(:, 321) = cell2mat(raw(:, 321)); % f322
-trainv2(:, 322) = cell2mat(raw(:, 322)); % f323
-trainv2(:, 323) = cell2mat(raw(:, 323)); % f324
-trainv2(:, 324) = cell2mat(raw(:, 324)); % f325
-trainv2(:, 325) = cell2mat(raw(:, 325)); % f326
-trainv2(:, 326) = cell2mat(raw(:, 326)); % f327
-trainv2(:, 327) = cell2mat(raw(:, 327)); % f328
-trainv2(:, 328) = cell2mat(raw(:, 328)); % f329
-trainv2(:, 329) = cell2mat(raw(:, 329)); % f330
-trainv2(:, 330) = cell2mat(raw(:, 330)); % f331
-trainv2(:, 331) = cell2mat(raw(:, 331)); % f332
-trainv2(:, 332) = cell2mat(raw(:, 332)); % f333
-trainv2(:, 333) = cell2mat(raw(:, 333)); % f334
-trainv2(:, 334) = cell2mat(raw(:, 334)); % f335
-trainv2(:, 335) = cell2mat(raw(:, 335)); % f336
-trainv2(:, 336) = cell2mat(raw(:, 336)); % f337
-trainv2(:, 337) = cell2mat(raw(:, 337)); % f338
-trainv2(:, 338) = cell2mat(raw(:, 338)); % f339
-trainv2(:, 339) = cell2mat(raw(:, 339)); % f340
-trainv2(:, 340) = cell2mat(raw(:, 340)); % f341
-trainv2(:, 341) = cell2mat(raw(:, 341)); % f342
-trainv2(:, 342) = cell2mat(raw(:, 342)); % f343
-trainv2(:, 343) = cell2mat(raw(:, 343)); % f344
-trainv2(:, 344) = cell2mat(raw(:, 344)); % f345
-trainv2(:, 345) = cell2mat(raw(:, 345)); % f346
-trainv2(:, 346) = cell2mat(raw(:, 346)); % f347
-trainv2(:, 347) = cell2mat(raw(:, 347)); % f348
-trainv2(:, 348) = cell2mat(raw(:, 348)); % f349
-trainv2(:, 349) = cell2mat(raw(:, 349)); % f350
-trainv2(:, 350) = cell2mat(raw(:, 350)); % f351
-trainv2(:, 351) = cell2mat(raw(:, 351)); % f352
-trainv2(:, 352) = cell2mat(raw(:, 352)); % f353
-trainv2(:, 353) = cell2mat(raw(:, 353)); % f354
-trainv2(:, 354) = cell2mat(raw(:, 354)); % f355
-trainv2(:, 355) = cell2mat(raw(:, 355)); % f356
-trainv2(:, 356) = cell2mat(raw(:, 356)); % f357
-trainv2(:, 357) = cell2mat(raw(:, 357)); % f358
-trainv2(:, 358) = cell2mat(raw(:, 358)); % f359
-trainv2(:, 359) = cell2mat(raw(:, 359)); % f360
-trainv2(:, 360) = cell2mat(raw(:, 360)); % f361
-trainv2(:, 361) = cell2mat(raw(:, 361)); % f362
-trainv2(:, 362) = cell2mat(raw(:, 362)); % f363
-trainv2(:, 363) = cell2mat(raw(:, 363)); % f364
-trainv2(:, 364) = cell2mat(raw(:, 364)); % f365
-trainv2(:, 365) = cell2mat(raw(:, 365)); % f366
-trainv2(:, 366) = cell2mat(raw(:, 366)); % f367
-trainv2(:, 367) = cell2mat(raw(:, 367)); % f368
-trainv2(:, 368) = cell2mat(raw(:, 368)); % f369
-trainv2(:, 369) = cell2mat(raw(:, 369)); % f370
-trainv2(:, 370) = cell2mat(raw(:, 370)); % f371
-trainv2(:, 371) = cell2mat(raw(:, 371)); % f372
-trainv2(:, 372) = cell2mat(raw(:, 372)); % f373
-trainv2(:, 373) = cell2mat(raw(:, 373)); % f374
-trainv2(:, 374) = cell2mat(raw(:, 374)); % f375
-trainv2(:, 375) = cell2mat(raw(:, 375)); % f376
-trainv2(:, 376) = cell2mat(raw(:, 376)); % f377
-trainv2(:, 377) = cell2mat(raw(:, 377)); % f378
-trainv2(:, 378) = cell2mat(raw(:, 378)); % f379
-trainv2(:, 379) = cell2mat(raw(:, 379)); % f380
-trainv2(:, 380) = cell2mat(raw(:, 380)); % f381
-trainv2(:, 381) = cell2mat(raw(:, 381)); % f382
-trainv2(:, 382) = cell2mat(raw(:, 382)); % f383
-trainv2(:, 383) = cell2mat(raw(:, 383)); % f384
-trainv2(:, 384) = cell2mat(raw(:, 384)); % f385
-trainv2(:, 385) = cell2mat(raw(:, 385)); % f386
-trainv2(:, 386) = cell2mat(raw(:, 386)); % f387
-trainv2(:, 387) = cell2mat(raw(:, 387)); % f388
-trainv2(:, 388) = cell2mat(raw(:, 388)); % f389
-trainv2(:, 389) = cell2mat(raw(:, 389)); % f390
-trainv2(:, 390) = cell2mat(raw(:, 390)); % f391
-trainv2(:, 391) = cell2mat(raw(:, 391)); % f392
-trainv2(:, 392) = cell2mat(raw(:, 392)); % f393
-trainv2(:, 393) = cell2mat(raw(:, 393)); % f394
-trainv2(:, 394) = cell2mat(raw(:, 394)); % f395
-trainv2(:, 395) = cell2mat(raw(:, 395)); % f396
-trainv2(:, 396) = cell2mat(raw(:, 396)); % f397
-trainv2(:, 397) = cell2mat(raw(:, 397)); % f398
-trainv2(:, 398) = cell2mat(raw(:, 398)); % f399
-trainv2(:, 399) = cell2mat(raw(:, 399)); % f400
-trainv2(:, 400) = cell2mat(raw(:, 400)); % f401
-trainv2(:, 401) = cell2mat(raw(:, 401)); % f402
-trainv2(:, 402) = cell2mat(raw(:, 402)); % f403
-trainv2(:, 403) = cell2mat(raw(:, 403)); % f404
-trainv2(:, 404) = cell2mat(raw(:, 404)); % f405
-trainv2(:, 405) = cell2mat(raw(:, 405)); % f406
-trainv2(:, 406) = cell2mat(raw(:, 406)); % f407
-trainv2(:, 407) = cell2mat(raw(:, 407)); % f408
-trainv2(:, 408) = cell2mat(raw(:, 408)); % f409
-trainv2(:, 409) = cell2mat(raw(:, 409)); % f410
-trainv2(:, 410) = cell2mat(raw(:, 410)); % f411
-trainv2(:, 411) = cell2mat(raw(:, 411)); % f412
-trainv2(:, 412) = cell2mat(raw(:, 412)); % f413
-trainv2(:, 413) = cell2mat(raw(:, 413)); % f414
-trainv2(:, 414) = cell2mat(raw(:, 414)); % f415
-trainv2(:, 415) = cell2mat(raw(:, 415)); % f416
-trainv2(:, 416) = cell2mat(raw(:, 416)); % f417
-trainv2(:, 417) = cell2mat(raw(:, 417)); % f418
-trainv2(:, 418) = cell2mat(raw(:, 418)); % f419
-trainv2(:, 419) = cell2mat(raw(:, 419)); % f420
-trainv2(:, 420) = cell2mat(raw(:, 420)); % f421
-trainv2(:, 421) = cell2mat(raw(:, 421)); % f422
-trainv2(:, 422) = cell2mat(raw(:, 422)); % f423
-trainv2(:, 423) = cell2mat(raw(:, 423)); % f424
-trainv2(:, 424) = cell2mat(raw(:, 424)); % f425
-trainv2(:, 425) = cell2mat(raw(:, 425)); % f426
-trainv2(:, 426) = cell2mat(raw(:, 426)); % f427
-trainv2(:, 427) = cell2mat(raw(:, 427)); % f428
-trainv2(:, 428) = cell2mat(raw(:, 428)); % f429
-trainv2(:, 429) = cell2mat(raw(:, 429)); % f430
-trainv2(:, 430) = cell2mat(raw(:, 430)); % f431
-trainv2(:, 431) = cell2mat(raw(:, 431)); % f432
-trainv2(:, 432) = cell2mat(raw(:, 432)); % f433
-trainv2(:, 433) = cell2mat(raw(:, 433)); % f434
-trainv2(:, 434) = cell2mat(raw(:, 434)); % f435
-trainv2(:, 435) = cell2mat(raw(:, 435)); % f436
-trainv2(:, 436) = cell2mat(raw(:, 436)); % f437
-trainv2(:, 437) = cell2mat(raw(:, 437)); % f438
-trainv2(:, 438) = cell2mat(raw(:, 438)); % f439
-trainv2(:, 439) = cell2mat(raw(:, 439)); % f440
-trainv2(:, 440) = cell2mat(raw(:, 440)); % f441
-trainv2(:, 441) = cell2mat(raw(:, 441)); % f442
-trainv2(:, 442) = cell2mat(raw(:, 442)); % f443
-trainv2(:, 443) = cell2mat(raw(:, 443)); % f444
-trainv2(:, 444) = cell2mat(raw(:, 444)); % f445
-trainv2(:, 445) = cell2mat(raw(:, 445)); % f446
-trainv2(:, 446) = cell2mat(raw(:, 446)); % f447
-trainv2(:, 447) = cell2mat(raw(:, 447)); % f448
-trainv2(:, 448) = cell2mat(raw(:, 448)); % f449
-trainv2(:, 449) = cell2mat(raw(:, 449)); % f450
-trainv2(:, 450) = cell2mat(raw(:, 450)); % f451
-trainv2(:, 451) = cell2mat(raw(:, 451)); % f452
-trainv2(:, 452) = cell2mat(raw(:, 452)); % f453
-trainv2(:, 453) = cell2mat(raw(:, 453)); % f454
-trainv2(:, 454) = cell2mat(raw(:, 454)); % f455
-trainv2(:, 455) = cell2mat(raw(:, 455)); % f456
-trainv2(:, 456) = cell2mat(raw(:, 456)); % f457
-trainv2(:, 457) = cell2mat(raw(:, 457)); % f458
-trainv2(:, 458) = cell2mat(raw(:, 458)); % f459
-trainv2(:, 459) = cell2mat(raw(:, 459)); % f460
-trainv2(:, 460) = cell2mat(raw(:, 460)); % f461
-trainv2(:, 461) = cell2mat(raw(:, 461)); % f464
-trainv2(:, 462) = cell2mat(raw(:, 462)); % f465
-trainv2(:, 463) = cell2mat(raw(:, 463)); % f466
-trainv2(:, 464) = cell2mat(raw(:, 464)); % f467
-trainv2(:, 465) = cell2mat(raw(:, 465)); % f468
-trainv2(:, 466) = cell2mat(raw(:, 466)); % f469
-trainv2(:, 467) = cell2mat(raw(:, 467)); % f470
-trainv2(:, 468) = cell2mat(raw(:, 468)); % f471
-trainv2(:, 469) = cell2mat(raw(:, 469)); % f472
-trainv2(:, 470) = cell2mat(raw(:, 470)); % f475
-trainv2(:, 471) = cell2mat(raw(:, 471)); % f476
-trainv2(:, 472) = cell2mat(raw(:, 472)); % f477
-trainv2(:, 473) = cell2mat(raw(:, 473)); % f478
-trainv2(:, 474) = cell2mat(raw(:, 474)); % f479
-trainv2(:, 475) = cell2mat(raw(:, 475)); % f480
-trainv2(:, 476) = cell2mat(raw(:, 476)); % f481
-trainv2(:, 477) = cell2mat(raw(:, 477)); % f482
-trainv2(:, 478) = cell2mat(raw(:, 478)); % f483
-trainv2(:, 479) = cell2mat(raw(:, 479)); % f484
-trainv2(:, 480) = cell2mat(raw(:, 480)); % f485
-trainv2(:, 481) = cell2mat(raw(:, 481)); % f486
-trainv2(:, 482) = cell2mat(raw(:, 482)); % f487
-trainv2(:, 483) = cell2mat(raw(:, 483)); % f488
-trainv2(:, 484) = cell2mat(raw(:, 484)); % f489
-trainv2(:, 485) = cell2mat(raw(:, 485)); % f490
-trainv2(:, 486) = cell2mat(raw(:, 486)); % f491
-trainv2(:, 487) = cell2mat(raw(:, 487)); % f492
-trainv2(:, 488) = cell2mat(raw(:, 488)); % f493
-trainv2(:, 489) = cell2mat(raw(:, 489)); % f494
-trainv2(:, 490) = cell2mat(raw(:, 490)); % f495
-trainv2(:, 491) = cell2mat(raw(:, 491)); % f496
-trainv2(:, 492) = cell2mat(raw(:, 492)); % f497
-trainv2(:, 493) = cell2mat(raw(:, 493)); % f498
-trainv2(:, 494) = cell2mat(raw(:, 494)); % f499
-trainv2(:, 495) = cell2mat(raw(:, 495)); % f500
-trainv2(:, 496) = cell2mat(raw(:, 496)); % f501
-trainv2(:, 497) = cell2mat(raw(:, 497)); % f502
-trainv2(:, 498) = cell2mat(raw(:, 498)); % f503
-trainv2(:, 499) = cell2mat(raw(:, 499)); % f504
-trainv2(:, 500) = cell2mat(raw(:, 500)); % f505
-trainv2(:, 501) = cell2mat(raw(:, 501)); % f506
-trainv2(:, 502) = cell2mat(raw(:, 502)); % f507
-trainv2(:, 503) = cell2mat(raw(:, 503)); % f508
-trainv2(:, 504) = cell2mat(raw(:, 504)); % f509
-trainv2(:, 505) = cell2mat(raw(:, 505)); % f510
-trainv2(:, 506) = cell2mat(raw(:, 506)); % f511
-trainv2(:, 507) = cell2mat(raw(:, 507)); % f512
-trainv2(:, 508) = cell2mat(raw(:, 508)); % f513
-trainv2(:, 509) = cell2mat(raw(:, 509)); % f514
-trainv2(:, 510) = cell2mat(raw(:, 510)); % f515
-trainv2(:, 511) = cell2mat(raw(:, 511)); % f516
-trainv2(:, 512) = cell2mat(raw(:, 512)); % f517
-trainv2(:, 513) = cell2mat(raw(:, 513)); % f518
-trainv2(:, 514) = cell2mat(raw(:, 514)); % f519
-trainv2(:, 515) = cell2mat(raw(:, 515)); % f520
-trainv2(:, 516) = cell2mat(raw(:, 516)); % f521
-trainv2(:, 517) = cell2mat(raw(:, 517)); % f522
-trainv2(:, 518) = cell2mat(raw(:, 518)); % f523
-trainv2(:, 519) = cell2mat(raw(:, 519)); % f524
-trainv2(:, 520) = cell2mat(raw(:, 520)); % f525
-trainv2(:, 521) = cell2mat(raw(:, 521)); % f526
-trainv2(:, 522) = cell2mat(raw(:, 522)); % f527
-trainv2(:, 523) = cell2mat(raw(:, 523)); % f528
-trainv2(:, 524) = cell2mat(raw(:, 524)); % f529
-trainv2(:, 525) = cell2mat(raw(:, 525)); % f530
-trainv2(:, 526) = cell2mat(raw(:, 526)); % f531
-trainv2(:, 527) = cell2mat(raw(:, 527)); % f532
-trainv2(:, 528) = cell2mat(raw(:, 528)); % f533
-trainv2(:, 529) = cell2mat(raw(:, 529)); % f534
-trainv2(:, 530) = cell2mat(raw(:, 530)); % f535
-trainv2(:, 531) = cell2mat(raw(:, 531)); % f536
-trainv2(:, 532) = cell2mat(raw(:, 532)); % f537
-trainv2(:, 533) = cell2mat(raw(:, 533)); % f538
-trainv2(:, 534) = cell2mat(raw(:, 534)); % f539
-trainv2(:, 535) = cell2mat(raw(:, 535)); % f540
-trainv2(:, 536) = cell2mat(raw(:, 536)); % f541
-trainv2(:, 537) = cell2mat(raw(:, 537)); % f542
-trainv2(:, 538) = cell2mat(raw(:, 538)); % f543
-trainv2(:, 539) = cell2mat(raw(:, 539)); % f544
-trainv2(:, 540) = cell2mat(raw(:, 540)); % f545
-trainv2(:, 541) = cell2mat(raw(:, 541)); % f546
-trainv2(:, 542) = cell2mat(raw(:, 542)); % f547
-trainv2(:, 543) = cell2mat(raw(:, 543)); % f548
-trainv2(:, 544) = cell2mat(raw(:, 544)); % f549
-trainv2(:, 545) = cell2mat(raw(:, 545)); % f550
-trainv2(:, 546) = cell2mat(raw(:, 546)); % f551
-trainv2(:, 547) = cell2mat(raw(:, 547)); % f552
-trainv2(:, 548) = cell2mat(raw(:, 548)); % f553
-trainv2(:, 549) = cell2mat(raw(:, 549)); % f554
-trainv2(:, 550) = cell2mat(raw(:, 550)); % f555
-trainv2(:, 551) = cell2mat(raw(:, 551)); % f556
-trainv2(:, 552) = cell2mat(raw(:, 552)); % f557
-trainv2(:, 553) = cell2mat(raw(:, 553)); % f558
-trainv2(:, 554) = cell2mat(raw(:, 554)); % f559
-trainv2(:, 555) = cell2mat(raw(:, 555)); % f560
-trainv2(:, 556) = cell2mat(raw(:, 556)); % f561
-trainv2(:, 557) = cell2mat(raw(:, 557)); % f562
-trainv2(:, 558) = cell2mat(raw(:, 558)); % f563
-trainv2(:, 559) = cell2mat(raw(:, 559)); % f564
-trainv2(:, 560) = cell2mat(raw(:, 560)); % f565
-trainv2(:, 561) = cell2mat(raw(:, 561)); % f566
-trainv2(:, 562) = cell2mat(raw(:, 562)); % f567
-trainv2(:, 563) = cell2mat(raw(:, 563)); % f568
-trainv2(:, 564) = cell2mat(raw(:, 564)); % f569
-trainv2(:, 565) = cell2mat(raw(:, 565)); % f570
-trainv2(:, 566) = cell2mat(raw(:, 566)); % f571
-trainv2(:, 567) = cell2mat(raw(:, 567)); % f572
-trainv2(:, 568) = cell2mat(raw(:, 568)); % f573
-trainv2(:, 569) = cell2mat(raw(:, 569)); % f574
-trainv2(:, 570) = cell2mat(raw(:, 570)); % f575
-trainv2(:, 571) = cell2mat(raw(:, 571)); % f576
-trainv2(:, 572) = cell2mat(raw(:, 572)); % f577
-trainv2(:, 573) = cell2mat(raw(:, 573)); % f578
-trainv2(:, 574) = cell2mat(raw(:, 574)); % f579
-trainv2(:, 575) = cell2mat(raw(:, 575)); % f580
-trainv2(:, 576) = cell2mat(raw(:, 576)); % f581
-trainv2(:, 577) = cell2mat(raw(:, 577)); % f582
-trainv2(:, 578) = cell2mat(raw(:, 578)); % f583
-trainv2(:, 579) = cell2mat(raw(:, 579)); % f584
-trainv2(:, 580) = cell2mat(raw(:, 580)); % f585
-trainv2(:, 581) = cell2mat(raw(:, 581)); % f586
-trainv2(:, 582) = cell2mat(raw(:, 582)); % f587
-trainv2(:, 583) = cell2mat(raw(:, 583)); % f588
-trainv2(:, 584) = cell2mat(raw(:, 584)); % f589
-trainv2(:, 585) = cell2mat(raw(:, 585)); % f590
-trainv2(:, 586) = cell2mat(raw(:, 586)); % f591
-trainv2(:, 587) = cell2mat(raw(:, 587)); % f592
-trainv2(:, 588) = cell2mat(raw(:, 588)); % f593
-trainv2(:, 589) = cell2mat(raw(:, 589)); % f594
-trainv2(:, 590) = cell2mat(raw(:, 590)); % f595
-trainv2(:, 591) = cell2mat(raw(:, 591)); % f596
-trainv2(:, 592) = cell2mat(raw(:, 592)); % f597
-trainv2(:, 593) = cell2mat(raw(:, 593)); % f598
-trainv2(:, 594) = cell2mat(raw(:, 594)); % f599
-trainv2(:, 595) = cell2mat(raw(:, 595)); % f600
-trainv2(:, 596) = cell2mat(raw(:, 596)); % f601
-trainv2(:, 597) = cell2mat(raw(:, 597)); % f604
-trainv2(:, 598) = cell2mat(raw(:, 598)); % f606
-trainv2(:, 599) = cell2mat(raw(:, 599)); % f607
-trainv2(:, 600) = cell2mat(raw(:, 600)); % f608
-trainv2(:, 601) = cell2mat(raw(:, 601)); % f609
-trainv2(:, 602) = cell2mat(raw(:, 602)); % f610
-trainv2(:, 603) = cell2mat(raw(:, 603)); % f611
-trainv2(:, 604) = cell2mat(raw(:, 604)); % f612
-trainv2(:, 605) = cell2mat(raw(:, 605)); % f613
-trainv2(:, 606) = cell2mat(raw(:, 606)); % f614
-trainv2(:, 607) = cell2mat(raw(:, 607)); % f615
-trainv2(:, 608) = cell2mat(raw(:, 608)); % f616
-trainv2(:, 609) = cell2mat(raw(:, 609)); % f617
-trainv2(:, 610) = cell2mat(raw(:, 610)); % f618
-trainv2(:, 611) = cell2mat(raw(:, 611)); % f619
-trainv2(:, 612) = cell2mat(raw(:, 612)); % f620
-trainv2(:, 613) = cell2mat(raw(:, 613)); % f621
-trainv2(:, 614) = cell2mat(raw(:, 614)); % f622
-trainv2(:, 615) = cell2mat(raw(:, 615)); % f623
-trainv2(:, 616) = cell2mat(raw(:, 616)); % f624
-trainv2(:, 617) = cell2mat(raw(:, 617)); % f625
-trainv2(:, 618) = cell2mat(raw(:, 618)); % f626
-trainv2(:, 619) = cell2mat(raw(:, 619)); % f627
-trainv2(:, 620) = cell2mat(raw(:, 620)); % f628
-trainv2(:, 621) = cell2mat(raw(:, 621)); % f629
-trainv2(:, 622) = cell2mat(raw(:, 622)); % f630
-trainv2(:, 623) = cell2mat(raw(:, 623)); % f631
-trainv2(:, 624) = cell2mat(raw(:, 624)); % f632
-trainv2(:, 625) = cell2mat(raw(:, 625)); % f633
-trainv2(:, 626) = cell2mat(raw(:, 626)); % f634
-trainv2(:, 627) = cell2mat(raw(:, 627)); % f635
-trainv2(:, 628) = cell2mat(raw(:, 628)); % f636
-trainv2(:, 629) = cell2mat(raw(:, 629)); % f637
-trainv2(:, 630) = cell2mat(raw(:, 630)); % f638
-trainv2(:, 631) = cell2mat(raw(:, 631)); % f639
-trainv2(:, 632) = cell2mat(raw(:, 632)); % f640
-trainv2(:, 633) = cell2mat(raw(:, 633)); % f641
-trainv2(:, 634) = cell2mat(raw(:, 634)); % f642
-trainv2(:, 635) = cell2mat(raw(:, 635)); % f643
-trainv2(:, 636) = cell2mat(raw(:, 636)); % f644
-trainv2(:, 637) = cell2mat(raw(:, 637)); % f645
-trainv2(:, 638) = cell2mat(raw(:, 638)); % f646
-trainv2(:, 639) = cell2mat(raw(:, 639)); % f647
-trainv2(:, 640) = cell2mat(raw(:, 640)); % f648
-trainv2(:, 641) = cell2mat(raw(:, 641)); % f649
-trainv2(:, 642) = cell2mat(raw(:, 642)); % f650
-trainv2(:, 643) = cell2mat(raw(:, 643)); % f651
-trainv2(:, 644) = cell2mat(raw(:, 644)); % f652
-trainv2(:, 645) = cell2mat(raw(:, 645)); % f653
-trainv2(:, 646) = cell2mat(raw(:, 646)); % f654
-trainv2(:, 647) = cell2mat(raw(:, 647)); % f655
-trainv2(:, 648) = cell2mat(raw(:, 648)); % f656
-trainv2(:, 649) = cell2mat(raw(:, 649)); % f657
-trainv2(:, 650) = cell2mat(raw(:, 650)); % f658
-trainv2(:, 651) = cell2mat(raw(:, 651)); % f659
-trainv2(:, 652) = cell2mat(raw(:, 652)); % f660
-trainv2(:, 653) = cell2mat(raw(:, 653)); % f661
-trainv2(:, 654) = cell2mat(raw(:, 654)); % f662
-trainv2(:, 655) = cell2mat(raw(:, 655)); % f663
-trainv2(:, 656) = cell2mat(raw(:, 656)); % f664
-trainv2(:, 657) = cell2mat(raw(:, 657)); % f665
-trainv2(:, 658) = cell2mat(raw(:, 658)); % f666
-trainv2(:, 659) = cell2mat(raw(:, 659)); % f667
-trainv2(:, 660) = cell2mat(raw(:, 660)); % f668
-trainv2(:, 661) = cell2mat(raw(:, 661)); % f669
-trainv2(:, 662) = cell2mat(raw(:, 662)); % f670
-trainv2(:, 663) = cell2mat(raw(:, 663)); % f671
-trainv2(:, 664) = cell2mat(raw(:, 664)); % f672
-trainv2(:, 665) = cell2mat(raw(:, 665)); % f673
-trainv2(:, 666) = cell2mat(raw(:, 666)); % f674
-trainv2(:, 667) = cell2mat(raw(:, 667)); % f675
-trainv2(:, 668) = cell2mat(raw(:, 668)); % f676
-trainv2(:, 669) = cell2mat(raw(:, 669)); % f677
-trainv2(:, 670) = cell2mat(raw(:, 670)); % f678
-trainv2(:, 671) = cell2mat(raw(:, 671)); % f679
-trainv2(:, 672) = cell2mat(raw(:, 672)); % f680
-trainv2(:, 673) = cell2mat(raw(:, 673)); % f681
-trainv2(:, 674) = cell2mat(raw(:, 674)); % f682
-trainv2(:, 675) = cell2mat(raw(:, 675)); % f683
-trainv2(:, 676) = cell2mat(raw(:, 676)); % f684
-trainv2(:, 677) = cell2mat(raw(:, 677)); % f685
-trainv2(:, 678) = cell2mat(raw(:, 678)); % f686
-trainv2(:, 679) = cell2mat(raw(:, 679)); % f687
-trainv2(:, 680) = cell2mat(raw(:, 680)); % f688
-trainv2(:, 681) = cell2mat(raw(:, 681)); % f689
-trainv2(:, 682) = cell2mat(raw(:, 682)); % f690
-trainv2(:, 683) = cell2mat(raw(:, 683)); % f691
-trainv2(:, 684) = cell2mat(raw(:, 684)); % f692
-trainv2(:, 685) = cell2mat(raw(:, 685)); % f693
-trainv2(:, 686) = cell2mat(raw(:, 686)); % f694
-trainv2(:, 687) = cell2mat(raw(:, 687)); % f695
-trainv2(:, 688) = cell2mat(raw(:, 688)); % f696
-trainv2(:, 689) = cell2mat(raw(:, 689)); % f697
-trainv2(:, 690) = cell2mat(raw(:, 690)); % f698
-trainv2(:, 691) = cell2mat(raw(:, 691)); % f699
-trainv2(:, 692) = cell2mat(raw(:, 692)); % f700
-trainv2(:, 693) = cell2mat(raw(:, 693)); % f701
-trainv2(:, 694) = cell2mat(raw(:, 694)); % f702
-trainv2(:, 695) = cell2mat(raw(:, 695)); % f703
-trainv2(:, 696) = cell2mat(raw(:, 696)); % f704
-trainv2(:, 697) = cell2mat(raw(:, 697)); % f705
-trainv2(:, 698) = cell2mat(raw(:, 698)); % f706
-trainv2(:, 699) = cell2mat(raw(:, 699)); % f707
-trainv2(:, 700) = cell2mat(raw(:, 700)); % f708
-trainv2(:, 701) = cell2mat(raw(:, 701)); % f709
-trainv2(:, 702) = cell2mat(raw(:, 702)); % f710
-trainv2(:, 703) = cell2mat(raw(:, 703)); % f711
-trainv2(:, 704) = cell2mat(raw(:, 704)); % f712
-trainv2(:, 705) = cell2mat(raw(:, 705)); % f713
-trainv2(:, 706) = cell2mat(raw(:, 706)); % f714
-trainv2(:, 707) = cell2mat(raw(:, 707)); % f715
-trainv2(:, 708) = cell2mat(raw(:, 708)); % f716
-trainv2(:, 709) = cell2mat(raw(:, 709)); % f717
-trainv2(:, 710) = cell2mat(raw(:, 710)); % f718
-trainv2(:, 711) = cell2mat(raw(:, 711)); % f719
-trainv2(:, 712) = cell2mat(raw(:, 712)); % f720
-trainv2(:, 713) = cell2mat(raw(:, 713)); % f721
-trainv2(:, 714) = cell2mat(raw(:, 714)); % f722
-trainv2(:, 715) = cell2mat(raw(:, 715)); % f723
-trainv2(:, 716) = cell2mat(raw(:, 716)); % f724
-trainv2(:, 717) = cell2mat(raw(:, 717)); % f725
-trainv2(:, 718) = cell2mat(raw(:, 718)); % f726
-trainv2(:, 719) = cell2mat(raw(:, 719)); % f727
-trainv2(:, 720) = cell2mat(raw(:, 720)); % f728
-trainv2(:, 721) = cell2mat(raw(:, 721)); % f729
-trainv2(:, 722) = cell2mat(raw(:, 722)); % f730
-trainv2(:, 723) = cell2mat(raw(:, 723)); % f731
-trainv2(:, 724) = cell2mat(raw(:, 724)); % f732
-trainv2(:, 725) = cell2mat(raw(:, 725)); % f733
-trainv2(:, 726) = cell2mat(raw(:, 726)); % f734
-trainv2(:, 727) = cell2mat(raw(:, 727)); % f735
-trainv2(:, 728) = cell2mat(raw(:, 728)); % f736
-trainv2(:, 729) = cell2mat(raw(:, 729)); % f737
-trainv2(:, 730) = cell2mat(raw(:, 730)); % f738
-trainv2(:, 731) = cell2mat(raw(:, 731)); % f739
-trainv2(:, 732) = cell2mat(raw(:, 732)); % f740
-trainv2(:, 733) = cell2mat(raw(:, 733)); % f741
-trainv2(:, 734) = cell2mat(raw(:, 734)); % f742
-trainv2(:, 735) = cell2mat(raw(:, 735)); % f743
-trainv2(:, 736) = cell2mat(raw(:, 736)); % f744
-trainv2(:, 737) = cell2mat(raw(:, 737)); % f745
-trainv2(:, 738) = cell2mat(raw(:, 738)); % f746
-trainv2(:, 739) = cell2mat(raw(:, 739)); % f747
-trainv2(:, 740) = cell2mat(raw(:, 740)); % f748
-trainv2(:, 741) = cell2mat(raw(:, 741)); % f749
-trainv2(:, 742) = cell2mat(raw(:, 742)); % f750
-trainv2(:, 743) = cell2mat(raw(:, 743)); % f751
-trainv2(:, 744) = cell2mat(raw(:, 744)); % f752
-trainv2(:, 745) = cell2mat(raw(:, 745)); % f753
-trainv2(:, 746) = cell2mat(raw(:, 746)); % f754
-trainv2(:, 747) = cell2mat(raw(:, 747)); % f755
-trainv2(:, 748) = cell2mat(raw(:, 748)); % f756
-trainv2(:, 749) = cell2mat(raw(:, 749)); % f757
-trainv2(:, 750) = cell2mat(raw(:, 750)); % f758
-trainv2(:, 751) = cell2mat(raw(:, 751)); % f759
-trainv2(:, 752) = cell2mat(raw(:, 752)); % f760
-trainv2(:, 753) = cell2mat(raw(:, 753)); % f761
-trainv2(:, 754) = cell2mat(raw(:, 754)); % f762
-trainv2(:, 755) = cell2mat(raw(:, 755)); % f763
-trainv2(:, 756) = cell2mat(raw(:, 756)); % f764
-trainv2(:, 757) = cell2mat(raw(:, 757)); % f765
-trainv2(:, 758) = cell2mat(raw(:, 758)); % f766
-trainv2(:, 759) = cell2mat(raw(:, 759)); % f767
-trainv2(:, 760) = cell2mat(raw(:, 760)); % f768
-trainv2(:, 761) = cell2mat(raw(:, 761)); % f769
-trainv2(:, 762) = cell2mat(raw(:, 762)); % f770
-trainv2(:, 763) = cell2mat(raw(:, 763)); % f771
-trainv2(:, 764) = cell2mat(raw(:, 764)); % f772
-trainv2(:, 765) = cell2mat(raw(:, 765)); % f773
-trainv2(:, 766) = cell2mat(raw(:, 766)); % f774
-trainv2(:, 767) = cell2mat(raw(:, 767)); % f775
-trainv2(:, 768) = cell2mat(raw(:, 768)); % f776
-trainv2(:, 769) = cell2mat(raw(:, 769)); % f777
-trainv2(:, 770) = cell2mat(raw(:, 770)); % f778
+trainv2 = cell2mat(raw);
+
+% 1 % ids
+% 2 % f1
+% 3 % f2
+% 4 % f3
+% 5 % f4
+% 6 % f5
+% 7 % f6
+% 8 % f7
+% 9 % f8
+% 10 % f9
+% 11 % f10
+% 12 % f13
+% 13 % f14
+% 14 % f15
+% 15 % f16
+% 16 % f17
+% 17 % f18
+% 18 % f19
+% 19 % f20
+% 20 % f21
+% 21 % f22
+% 22 % f23
+% 23 % f24
+% 24 % f25
+% 25 % f26
+% 26 % f27
+% 27 % f28
+% 28 % f29
+% 29 % f30
+% 30 % f31
+% 31 % f32
+% 32 % f33
+% 33 % f34
+% 34 % f35
+% 35 % f36
+% 36 % f37
+% 37 % f38
+% 38 % f39
+% 39 % f40
+% 40 % f41
+% 41 % f42
+% 42 % f43
+% 43 % f44
+% 44 % f45
+% 45 % f46
+% 46 % f47
+% 47 % f48
+% 48 % f49
+% 49 % f50
+% 50 % f51
+% 51 % f52
+% 52 % f53
+% 53 % f54
+% 54 % f55
+% 55 % f56
+% 56 % f57
+% 57 % f58
+% 58 % f59
+% 59 % f60
+% 60 % f61
+% 61 % f62
+% 62 % f63
+% 63 % f64
+% 64 % f65
+% 65 % f66
+% 66 % f67
+% 67 % f68
+% 68 % f69
+% 69 % f70
+% 70 % f71
+% 71 % f72
+% 72 % f73
+% 73 % f74
+% 74 % f75
+% 75 % f76
+% 76 % f77
+% 77 % f78
+% 78 % f79
+% 79 % f80
+% 80 % f81
+% 81 % f82
+% 82 % f83
+% 83 % f84
+% 84 % f85
+% 85 % f86
+% 86 % f87
+% 87 % f88
+% 88 % f89
+% 89 % f90
+% 90 % f91
+% 91 % f92
+% 92 % f93
+% 93 % f94
+% 94 % f95
+% 95 % f96
+% 96 % f97
+% 97 % f98
+% 98 % f99
+% 99 % f100
+% 100 % f101
+% 101 % f102
+% 102 % f103
+% 103 % f104
+% 104 % f105
+% 105 % f106
+% 106 % f107
+% 107 % f108
+% 108 % f109
+% 109 % f110
+% 110 % f111
+% 111 % f112
+% 112 % f113
+% 113 % f114
+% 114 % f115
+% 115 % f116
+% 116 % f117
+% 117 % f118
+% 118 % f119
+% 119 % f120
+% 120 % f121
+% 121 % f122
+% 122 % f123
+% 123 % f124
+% 124 % f125
+% 125 % f126
+% 126 % f127
+% 127 % f128
+% 128 % f129
+% 129 % f130
+% 130 % f131
+% 131 % f132
+% 132 % f133
+% 133 % f134
+% 134 % f135
+% 135 % f136
+% 136 % f137
+% 137 % f138
+% 138 % f139
+% 139 % f140
+% 140 % f141
+% 141 % f142
+% 142 % f143
+% 143 % f144
+% 144 % f145
+% 145 % f146
+% 146 % f147
+% 147 % f148
+% 148 % f149
+% 149 % f150
+% 150 % f151
+% 151 % f152
+% 152 % f153
+% 153 % f154
+% 154 % f155
+% 155 % f156
+% 156 % f157
+% 157 % f158
+% 158 % f159
+% 159 % f160
+% 160 % f161
+% 161 % f162
+% 162 % f163
+% 163 % f164
+% 164 % f165
+% 165 % f166
+% 166 % f167
+% 167 % f168
+% 168 % f169
+% 169 % f170
+% 170 % f171
+% 171 % f172
+% 172 % f173
+% 173 % f174
+% 174 % f175
+% 175 % f176
+% 176 % f177
+% 177 % f178
+% 178 % f179
+% 179 % f180
+% 180 % f181
+% 181 % f182
+% 182 % f183
+% 183 % f184
+% 184 % f185
+% 185 % f186
+% 186 % f187
+% 187 % f188
+% 188 % f189
+% 189 % f190
+% 190 % f191
+% 191 % f192
+% 192 % f193
+% 193 % f194
+% 194 % f195
+% 195 % f196
+% 196 % f197
+% 197 % f198
+% 198 % f199
+% 199 % f200
+% 200 % f201
+% 201 % f202
+% 202 % f203
+% 203 % f204
+% 204 % f205
+% 205 % f206
+% 206 % f207
+% 207 % f208
+% 208 % f209
+% 209 % f210
+% 210 % f211
+% 211 % f212
+% 212 % f213
+% 213 % f214
+% 214 % f215
+% 215 % f216
+% 216 % f217
+% 217 % f218
+% 218 % f219
+% 219 % f220
+% 220 % f221
+% 221 % f222
+% 222 % f223
+% 223 % f224
+% 224 % f225
+% 225 % f226
+% 226 % f227
+% 227 % f228
+% 228 % f229
+% 229 % f230
+% 230 % f231
+% 231 % f232
+% 232 % f233
+% 233 % f234
+% 234 % f235
+% 235 % f236
+% 236 % f237
+% 237 % f238
+% 238 % f239
+% 239 % f240
+% 240 % f241
+% 241 % f242
+% 242 % f243
+% 243 % f244
+% 244 % f245
+% 245 % f246
+% 246 % f247
+% 247 % f248
+% 248 % f249
+% 249 % f250
+% 250 % f251
+% 251 % f252
+% 252 % f253
+% 253 % f254
+% 254 % f255
+% 255 % f256
+% 256 % f257
+% 257 % f258
+% 258 % f259
+% 259 % f260
+% 260 % f261
+% 261 % f262
+% 262 % f263
+% 263 % f264
+% 264 % f265
+% 265 % f266
+% 266 % f267
+% 267 % f268
+% 268 % f269
+% 269 % f270
+% 270 % f271
+% 271 % f272
+% 272 % f273
+% 273 % f274
+% 274 % f275
+% 275 % f276
+% 276 % f277
+% 277 % f278
+% 278 % f279
+% 279 % f280
+% 280 % f281
+% 281 % f282
+% 282 % f283
+% 283 % f284
+% 284 % f285
+% 285 % f286
+% 286 % f287
+% 287 % f288
+% 288 % f289
+% 289 % f290
+% 290 % f291
+% 291 % f292
+% 292 % f293
+% 293 % f294
+% 294 % f295
+% 295 % f296
+% 296 % f297
+% 297 % f298
+% 298 % f299
+% 299 % f300
+% 300 % f301
+% 301 % f302
+% 302 % f303
+% 303 % f304
+% 304 % f305
+% 305 % f306
+% 306 % f307
+% 307 % f308
+% 308 % f309
+% 309 % f310
+% 310 % f311
+% 311 % f312
+% 312 % f313
+% 313 % f314
+% 314 % f315
+% 315 % f316
+% 316 % f317
+% 317 % f318
+% 318 % f319
+% 319 % f320
+% 320 % f321
+% 321 % f322
+% 322 % f323
+% 323 % f324
+% 324 % f325
+% 325 % f326
+% 326 % f327
+% 327 % f328
+% 328 % f329
+% 329 % f330
+% 330 % f331
+% 331 % f332
+% 332 % f333
+% 333 % f334
+% 334 % f335
+% 335 % f336
+% 336 % f337
+% 337 % f338
+% 338 % f339
+% 339 % f340
+% 340 % f341
+% 341 % f342
+% 342 % f343
+% 343 % f344
+% 344 % f345
+% 345 % f346
+% 346 % f347
+% 347 % f348
+% 348 % f349
+% 349 % f350
+% 350 % f351
+% 351 % f352
+% 352 % f353
+% 353 % f354
+% 354 % f355
+% 355 % f356
+% 356 % f357
+% 357 % f358
+% 358 % f359
+% 359 % f360
+% 360 % f361
+% 361 % f362
+% 362 % f363
+% 363 % f364
+% 364 % f365
+% 365 % f366
+% 366 % f367
+% 367 % f368
+% 368 % f369
+% 369 % f370
+% 370 % f371
+% 371 % f372
+% 372 % f373
+% 373 % f374
+% 374 % f375
+% 375 % f376
+% 376 % f377
+% 377 % f378
+% 378 % f379
+% 379 % f380
+% 380 % f381
+% 381 % f382
+% 382 % f383
+% 383 % f384
+% 384 % f385
+% 385 % f386
+% 386 % f387
+% 387 % f388
+% 388 % f389
+% 389 % f390
+% 390 % f391
+% 391 % f392
+% 392 % f393
+% 393 % f394
+% 394 % f395
+% 395 % f396
+% 396 % f397
+% 397 % f398
+% 398 % f399
+% 399 % f400
+% 400 % f401
+% 401 % f402
+% 402 % f403
+% 403 % f404
+% 404 % f405
+% 405 % f406
+% 406 % f407
+% 407 % f408
+% 408 % f409
+% 409 % f410
+% 410 % f411
+% 411 % f412
+% 412 % f413
+% 413 % f414
+% 414 % f415
+% 415 % f416
+% 416 % f417
+% 417 % f418
+% 418 % f419
+% 419 % f420
+% 420 % f421
+% 421 % f422
+% 422 % f423
+% 423 % f424
+% 424 % f425
+% 425 % f426
+% 426 % f427
+% 427 % f428
+% 428 % f429
+% 429 % f430
+% 430 % f431
+% 431 % f432
+% 432 % f433
+% 433 % f434
+% 434 % f435
+% 435 % f436
+% 436 % f437
+% 437 % f438
+% 438 % f439
+% 439 % f440
+% 440 % f441
+% 441 % f442
+% 442 % f443
+% 443 % f444
+% 444 % f445
+% 445 % f446
+% 446 % f447
+% 447 % f448
+% 448 % f449
+% 449 % f450
+% 450 % f451
+% 451 % f452
+% 452 % f453
+% 453 % f454
+% 454 % f455
+% 455 % f456
+% 456 % f457
+% 457 % f458
+% 458 % f459
+% 459 % f460
+% 460 % f461
+% 461 % f464
+% 462 % f465
+% 463 % f466
+% 464 % f467
+% 465 % f468
+% 466 % f469
+% 467 % f470
+% 468 % f471
+% 469 % f472
+% 470 % f475
+% 471 % f476
+% 472 % f477
+% 473 % f478
+% 474 % f479
+% 475 % f480
+% 476 % f481
+% 477 % f482
+% 478 % f483
+% 479 % f484
+% 480 % f485
+% 481 % f486
+% 482 % f487
+% 483 % f488
+% 484 % f489
+% 485 % f490
+% 486 % f491
+% 487 % f492
+% 488 % f493
+% 489 % f494
+% 490 % f495
+% 491 % f496
+% 492 % f497
+% 493 % f498
+% 494 % f499
+% 495 % f500
+% 496 % f501
+% 497 % f502
+% 498 % f503
+% 499 % f504
+% 500 % f505
+% 501 % f506
+% 502 % f507
+% 503 % f508
+% 504 % f509
+% 505 % f510
+% 506 % f511
+% 507 % f512
+% 508 % f513
+% 509 % f514
+% 510 % f515
+% 511 % f516
+% 512 % f517
+% 513 % f518
+% 514 % f519
+% 515 % f520
+% 516 % f521
+% 517 % f522
+% 518 % f523
+% 519 % f524
+% 520 % f525
+% 521 % f526
+% 522 % f527
+% 523 % f528
+% 524 % f529
+% 525 % f530
+% 526 % f531
+% 527 % f532
+% 528 % f533
+% 529 % f534
+% 530 % f535
+% 531 % f536
+% 532 % f537
+% 533 % f538
+% 534 % f539
+% 535 % f540
+% 536 % f541
+% 537 % f542
+% 538 % f543
+% 539 % f544
+% 540 % f545
+% 541 % f546
+% 542 % f547
+% 543 % f548
+% 544 % f549
+% 545 % f550
+% 546 % f551
+% 547 % f552
+% 548 % f553
+% 549 % f554
+% 550 % f555
+% 551 % f556
+% 552 % f557
+% 553 % f558
+% 554 % f559
+% 555 % f560
+% 556 % f561
+% 557 % f562
+% 558 % f563
+% 559 % f564
+% 560 % f565
+% 561 % f566
+% 562 % f567
+% 563 % f568
+% 564 % f569
+% 565 % f570
+% 566 % f571
+% 567 % f572
+% 568 % f573
+% 569 % f574
+% 570 % f575
+% 571 % f576
+% 572 % f577
+% 573 % f578
+% 574 % f579
+% 575 % f580
+% 576 % f581
+% 577 % f582
+% 578 % f583
+% 579 % f584
+% 580 % f585
+% 581 % f586
+% 582 % f587
+% 583 % f588
+% 584 % f589
+% 585 % f590
+% 586 % f591
+% 587 % f592
+% 588 % f593
+% 589 % f594
+% 590 % f595
+% 591 % f596
+% 592 % f597
+% 593 % f598
+% 594 % f599
+% 595 % f600
+% 596 % f601
+% 597 % f604
+% 598 % f606
+% 599 % f607
+% 600 % f608
+% 601 % f609
+% 602 % f610
+% 603 % f611
+% 604 % f612
+% 605 % f613
+% 606 % f614
+% 607 % f615
+% 608 % f616
+% 609 % f617
+% 610 % f618
+% 611 % f619
+% 612 % f620
+% 613 % f621
+% 614 % f622
+% 615 % f623
+% 616 % f624
+% 617 % f625
+% 618 % f626
+% 619 % f627
+% 620 % f628
+% 621 % f629
+% 622 % f630
+% 623 % f631
+% 624 % f632
+% 625 % f633
+% 626 % f634
+% 627 % f635
+% 628 % f636
+% 629 % f637
+% 630 % f638
+% 631 % f639
+% 632 % f640
+% 633 % f641
+% 634 % f642
+% 635 % f643
+% 636 % f644
+% 637 % f645
+% 638 % f646
+% 639 % f647
+% 640 % f648
+% 641 % f649
+% 642 % f650
+% 643 % f651
+% 644 % f652
+% 645 % f653
+% 646 % f654
+% 647 % f655
+% 648 % f656
+% 649 % f657
+% 650 % f658
+% 651 % f659
+% 652 % f660
+% 653 % f661
+% 654 % f662
+% 655 % f663
+% 656 % f664
+% 657 % f665
+% 658 % f666
+% 659 % f667
+% 660 % f668
+% 661 % f669
+% 662 % f670
+% 663 % f671
+% 664 % f672
+% 665 % f673
+% 666 % f674
+% 667 % f675
+% 668 % f676
+% 669 % f677
+% 670 % f678
+% 671 % f679
+% 672 % f680
+% 673 % f681
+% 674 % f682
+% 675 % f683
+% 676 % f684
+% 677 % f685
+% 678 % f686
+% 679 % f687
+% 680 % f688
+% 681 % f689
+% 682 % f690
+% 683 % f691
+% 684 % f692
+% 685 % f693
+% 686 % f694
+% 687 % f695
+% 688 % f696
+% 689 % f697
+% 690 % f698
+% 691 % f699
+% 692 % f700
+% 693 % f701
+% 694 % f702
+% 695 % f703
+% 696 % f704
+% 697 % f705
+% 698 % f706
+% 699 % f707
+% 700 % f708
+% 701 % f709
+% 702 % f710
+% 703 % f711
+% 704 % f712
+% 705 % f713
+% 706 % f714
+% 707 % f715
+% 708 % f716
+% 709 % f717
+% 710 % f718
+% 711 % f719
+% 712 % f720
+% 713 % f721
+% 714 % f722
+% 715 % f723
+% 716 % f724
+% 717 % f725
+% 718 % f726
+% 719 % f727
+% 720 % f728
+% 721 % f729
+% 722 % f730
+% 723 % f731
+% 724 % f732
+% 725 % f733
+% 726 % f734
+% 727 % f735
+% 728 % f736
+% 729 % f737
+% 730 % f738
+% 731 % f739
+% 732 % f740
+% 733 % f741
+% 734 % f742
+% 735 % f743
+% 736 % f744
+% 737 % f745
+% 738 % f746
+% 739 % f747
+% 740 % f748
+% 741 % f749
+% 742 % f750
+% 743 % f751
+% 744 % f752
+% 745 % f753
+% 746 % f754
+% 747 % f755
+% 748 % f756
+% 749 % f757
+% 750 % f758
+% 751 % f759
+% 752 % f760
+% 753 % f761
+% 754 % f762
+% 755 % f763
+% 756 % f764
+% 757 % f765
+% 758 % f766
+% 759 % f767
+% 760 % f768
+% 761 % f769
+% 762 % f770
+% 763 % f771
+% 764 % f772
+% 765 % f773
+% 766 % f774
+% 767 % f775
+% 768 % f776
+% 769 % f777
+% 770 % f778
 
 loss = cell2mat(raw(:, 771));
