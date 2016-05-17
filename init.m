@@ -18,23 +18,17 @@ addpath('./model_selection');
 addpath('./util');
 addpath('./algs/knn');
 addpath('./algs/reglog');
+addpath('./algs/pca');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.csv', 2, 100);
+[df, losses] = importfile('train_v2.csv', 2, 500);
 
 ptm(df);
 
-% Limpeza inicial
-[df, losses] = initial_cleaning(df, losses);
-
-% Realiza operacoes nas features, removendo e criando novas no subset de selecao
-df = featurize(df, (losses > 0));
-
-% Normalizando dados
-fprintf('Normalizando dados...\n\n');
-dfx = normalize(df);
+% Realiza operacoes nas features e observacoes
+[dfx, losses] = analise(df, losses);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
@@ -55,7 +49,7 @@ if GRID_SEARCH
   upper_bound = floor(sqrt(size(training, 1)));
   range = (1 : 2 : upper_bound);
 
-  [c, ~, knn_grid_errors] = grid_search(training, training_labels_bool, @apply_knn, @knn_error, range);
+  [knn_K, ~, knn_grid_errors] = grid_search(training, training_labels_bool, @apply_knn, @knn_error, range);
 
   plot(knn_grid_errors(:,1),knn_grid_errors(:,2));
 end
@@ -66,7 +60,7 @@ end
 
 
 run_method('KNN', labels_bool, ...
-  @()(apply_knn(testing, training, training_labels_bool, 3)));
+  @()(apply_knn(testing, training, training_labels_bool, knn_K)));
 
 run_method('Regressao logistica', labels_bool, ...
   @()(apply_reglog(testing, training, training_labels_bool)));
