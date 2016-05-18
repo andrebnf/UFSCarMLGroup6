@@ -4,7 +4,7 @@ function data = evaluate(labels, expected)
   fp = length(find(labels == 1)) - tp;
   fn = length(find(labels == 0)) - tn;
 
-  data = table;
+  data = struct;
 
   data.tp = tp;
   data.tn = tn;

@@ -34,8 +34,8 @@ ptm(df);
 fprintf('Separando dados de treinamento e testes...\n\n');
 [testing, training, labels, training_labels] = separate_data(dfx, losses, .3);
 
-training_labels_bool = training_labels > 0;
-labels_bool = labels > 0;
+training_labels_bool = double(training_labels > 0);
+labels_bool = double(labels > 0);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRID SEARCH
@@ -52,7 +52,9 @@ if GRID_SEARCH
     upper_bound = upper_bound - 1;
   end
 
-  range = [3 5 9 ceil(upper_bound / 2) upper_bound]
+  range = [3 5 9 ceil(upper_bound / 2) upper_bound];
+  
+  disp(range);
 
   [knn_K, ~, knn_grid_errors] = grid_search(training, training_labels_bool, @apply_knn, @knn_error, range);
 
