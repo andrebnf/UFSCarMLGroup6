@@ -23,12 +23,12 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.csv', 2, 500);
+[df, losses] = importfile('train_v2.mat', 1, 500);
 
 ptm(df);
 
 % Realiza operacoes nas features e observacoes
-[dfx, losses] = analise(df, losses);
+[dfx, losses, U, S] = analise(df, losses);
 
 % Separa dados para treinamento e teste
 fprintf('Separando dados de treinamento e testes...\n\n');
@@ -47,11 +47,19 @@ if GRID_SEARCH
   fprintf('Grid search para kNN...\n\n');
 
   upper_bound = floor(sqrt(size(training, 1)));
-  range = (1 : 2 : upper_bound);
+
+  if mod(upper_bound, 2) == 0
+    upper_bound = upper_bound - 1;
+  end
+
+  range = [3 5 9 ceil(upper_bound / 2) upper_bound]
 
   [knn_K, ~, knn_grid_errors] = grid_search(training, training_labels_bool, @apply_knn, @knn_error, range);
 
-  plot(knn_grid_errors(:,1),knn_grid_errors(:,2));
+  plot(knn_grid_errors(: , 1), knn_grid_errors(: , 2));
+  xlabel('K');
+  ylabel('Error');
+  title('Grid search para o kNN');
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

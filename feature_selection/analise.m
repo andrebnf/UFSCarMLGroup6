@@ -1,4 +1,4 @@
-function [df, losses] = analise(dataframe, labels)
+function [df, losses, U, S] = analise(dataframe, labels)
   df = dataframe;
   losses = labels;
 
@@ -41,6 +41,6 @@ function [df, losses] = analise(dataframe, labels)
   df = normalize(df);
 
   % Aplica PCA
-  df = apply_pca(df);
+  [df, U, S] = apply_pca(df, 205);
 
   ptm(df);

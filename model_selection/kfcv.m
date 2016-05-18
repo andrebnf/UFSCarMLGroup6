@@ -9,7 +9,7 @@ function value = kfcv(dataframe, labels, method, errorMeasure, K)
 
   errors = zeros(K, 1);
 
-  for k = 1 : K
+  parfor k = 1 : K
     training = dataframe(indices == k, :);
     validation = dataframe(indices ~= k, :);
 

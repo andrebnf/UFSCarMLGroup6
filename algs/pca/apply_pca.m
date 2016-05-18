@@ -1,4 +1,8 @@
-function [df, U, S] = apply_pca(dataframe)
+function [df, U, S] = apply_pca(dataframe, K)
+  if nargin <= 1
+    K = -1;
+  end
+
   fprintf('\tAplicando PCA...\n\n');
 
   [U, S] = pca(dataframe);
@@ -11,17 +15,22 @@ function [df, U, S] = apply_pca(dataframe)
 
   fprintf('\t\t\tK = ');
 
-  for k = 1 : m
-    fprintf('%d', k);
+  if K == -1
+    for k = 1 : m
+      fprintf('%d', k);
 
-    c = sum(diagonal(1 : k)) / total;
+      c = sum(diagonal(1 : k)) / total;
 
-    if (1 - c <= 0.01)
-      fprintf('.');
-      break;
+      if (1 - c <= 0.01)
+        fprintf('.');
+        break;
+      end
+
+      fprintf(', ');
     end
-
-    fprintf(', ');
+  else
+    k = K;
+    fprintf('%d.', k);
   end
 
   fprintf('\n\n\t\tMELHOR K = %d!\n\n', k);
