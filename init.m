@@ -10,7 +10,7 @@
 %% Inicializacao
 clear ; close all; clc;
 
-GRID_SEARCH = true;
+GRID_SEARCH = false;
 
 %% Carrega funcoes de selecao de atributos
 addpath('./feature_selection');
@@ -23,7 +23,7 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1, 500);
+[df, losses] = importfile('train_v2.mat', 1);
 
 ptm(df);
 
@@ -53,15 +53,17 @@ if GRID_SEARCH
   end
 
   range = [3 5 9 ceil(upper_bound / 2) upper_bound];
-  
+
   disp(range);
 
   [knn_K, ~, knn_grid_errors] = grid_search(training, training_labels_bool, @apply_knn, @knn_error, range);
 
-  plot(knn_grid_errors(: , 1), knn_grid_errors(: , 2));
+  plot(knn_grid_errors(: , 1), knn_grid_errors(: , 2), 'b-o');
+  hold on;
   xlabel('K');
   ylabel('Error');
   title('Grid search para o kNN');
+  hold off;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +72,7 @@ end
 
 
 run_method('KNN', labels_bool, ...
-  @()(apply_knn(testing, training, training_labels_bool, knn_K)));
+  @()(apply_knn(testing, training, training_labels_bool, 95)));
 
 run_method('Regressao logistica', labels_bool, ...
   @()(apply_reglog(testing, training, training_labels_bool)));

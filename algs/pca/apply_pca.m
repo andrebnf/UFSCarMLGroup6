@@ -33,6 +33,6 @@ function [df, U, S] = apply_pca(dataframe, K)
     fprintf('%d.', k);
   end
 
-  fprintf('\n\n\t\tMELHOR K = %d!\n\n', k);
+  fprintf('\n\n\t\tMELHOR K = %d! (perda = %d)\n\n', k, 1 - (sum(diagonal(1 : k)) / total));
 
   df = projetarDados(dataframe, U, k);
