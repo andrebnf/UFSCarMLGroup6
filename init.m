@@ -10,6 +10,16 @@
 %% Inicializacao
 clear ; close all; clc;
 
+try
+  matlablpool
+catch
+  try
+    parpool
+  catch
+    disp('(Nao encontrou nenhum metodo para comp. paralela. Iniciando sem.)\n')
+  end
+end
+
 GRID_SEARCH = false;
 
 %% Carrega funcoes de selecao de atributos
@@ -23,7 +33,7 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1);
+[df, losses] = importfile('train_v2.mat', 1, 500);
 
 ptm(df);
 
