@@ -6,6 +6,8 @@ function [c, errors] = call_grid(name, constant_name, constants, training, train
   [c, ~, errors] = grid_search(...
     training, training_labels, method, error_fn, constants);
 
+  disp(errors);
+
   figure;
     plot(errors(: , 1), errors(: , 2), 'b-o');
     hold on;
