@@ -10,7 +10,7 @@
 %% Inicializacao
 clear ; close all; clc;
 
-GRID_SEARCH = false;
+GRID_SEARCH = true;
 
 try
   matlabpool
@@ -34,7 +34,7 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1);
+[df, losses] = importfile('train_v2.mat', 1, 10000);
 
 ptm(df);
 
@@ -45,8 +45,13 @@ ptm(df);
 % GRID SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+gs = struct;
+
+gs.kNN = 0;
+gs.reglog = 0;
+
 if GRID_SEARCH
-  do_grid_search(dfx, losses);
+  gs = do_grid_search(dfx, losses);
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,6 +60,6 @@ end
 
 losses_bool = double(losses > 0);
 
-run_method('kNN', dfx, losses_bool, @apply_knn, @knn_error, 95);
+run_method('kNN', dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
 
-run_method('Regressao logistica', dfx, losses_bool, @apply_reglog, @reglog_error, 32);
+run_method('Regressao logistica', dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
