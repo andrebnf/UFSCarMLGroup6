@@ -28,6 +28,7 @@ addpath('./model_selection');
 addpath('./util');
 addpath('./grid');
 addpath('./algs/knn');
+addpath('./algs/reglin');
 addpath('./algs/reglog');
 addpath('./algs/pca');
 
@@ -40,6 +41,8 @@ ptm(df);
 
 % Realiza operacoes nas features e observacoes
 [dfx, losses, U, S] = analise(df, losses);
+
+%clear df;       sugestao, verificar
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRID SEARCH
