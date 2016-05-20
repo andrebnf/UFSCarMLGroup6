@@ -1,9 +1,10 @@
-function value = kfcv(dataframe, labels, method, errorMeasure, K)
-  if nargin <= 4
+function value = kfcv(dataframe, labels, method, errorMeasure, variable, K)
+  if nargin <= 5
     K = 10;
   end
 
   m = size(dataframe, 1);
+  n = nargout(method);
 
   indices = kf_index(m, K);
 
@@ -16,9 +17,11 @@ function value = kfcv(dataframe, labels, method, errorMeasure, K)
     training_labels = labels(indices == k);
     validation_labels = labels(indices ~= k);
 
-    result = method(validation, training, training_labels);
+    rest = cell(1, n - 2);
 
-    errors(k) = errorMeasure(result, validation_labels);
+    [result, ~, rest{:}] = method(validation, training, training_labels, variable);
+
+    errors(k) = errorMeasure(result, validation_labels, validation, variable, rest{:});
   end
 
   value = sum(errors) / K;

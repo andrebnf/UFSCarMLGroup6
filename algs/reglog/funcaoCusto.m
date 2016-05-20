@@ -1,31 +1,18 @@
-function [J, grad] = funcaoCusto(theta, X, y)
-%FUNCAOCUSTO Calcula o custo da regressao logistica
-%   J = FUNCAOCUSTO(X, y, theta) calcula o custo de usar theta como 
-%   parametro da regressao logistica para ajustar os dados de X e y
+function [J, grad] = funcaoCusto(theta, X, y, lambda)
+  %FUNCAOCUSTO Calcula o custo da regressao logistica
+  %   J = FUNCAOCUSTO(X, y, theta) calcula o custo de usar theta como
+  %   parametro da regressao logistica para ajustar os dados de X e y
+  m = length(y);
 
-% Initializa algumas variaveis uteis
-m = length(y); % numero de exemplos de treinamento
+  h = sigmoid(X * theta);
 
-% Voce precisa retornar as seguintes variaveis corretamente
-J = 0;
-grad = zeros(size(theta));
+  J = (1 / m) * ((-y' * log(h)) - ((1 - y') * log(1 - h)));
 
-% ====================== ESCREVA O SEU CODIGO AQUI ======================
-% Instrucoes: Calcule o custo de uma escolha particular de theta.
-%             Voce precisa armazenar o valor do custo em J.
-%             Calcule as derivadas parciais e encontre o valor do gradiente
-%             para o custo com relacao ao parametro theta
-%
-% Obs: grad deve ter a mesma dimensao de theta
-%
+  grad = (1 / m) * X' * (h - y);
 
-h = sigmoid(X * theta);
+  % Regularizacao
 
-J = (1 / m) * ((-y' * log(h)) - ((1 - y') * log(1 - h)));
+  J = J + (lambda / (2 * m)) * sum(theta(2 : end) .^ 2);
 
-grad = (1 / m) * X' * (h - y);
-
-
-% =============================================================
-
+  grad(2 : end) = grad(2 : end) + (lambda / m) * theta(2 : end);
 end

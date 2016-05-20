@@ -6,6 +6,3 @@ function [head, tail, head_labels, tail_labels] = separate_data(dataframe, label
 
   head_labels = labels(1 : len, :);
   tail_labels = labels(len + 1 : end, :);
-
-  fprintf('\t\t- matriz menor com %dx%d\n\n', size(head, 1), size(head, 2));
-  fprintf('\t\t- matriz maior com %dx%d\n\n', size(tail, 1), size(tail, 2));
