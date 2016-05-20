@@ -10,10 +10,7 @@ function [x, value, errors] = grid_search(dataframe, labels, method, errorMeasur
 
     fprintf('%d ', c);
 
-    fn = @(validation, training, training_labels)(...
-      method(validation, training, training_labels, c));
-
-    errors(i, 2) = kfcv(dataframe, labels, fn, errorMeasure);
+    errors(i, 2) = kfcv(dataframe, labels, method, errorMeasure, c);
   end
 
   errors = sortrows(errors);
