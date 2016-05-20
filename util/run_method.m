@@ -39,14 +39,14 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
 
   statistic = EVALUATES(N);
 
-  errors
+  disp(errors);
 
   % Plota curva de aprendizado
   figure;
-  hold on;
-  plot(ranges, errors(:, 1), 'r-', ranges, errors(:, 2), 'b--');
-  title(sprintf('Curva de aprendizado do %s', name));
-  xlabel('Quantidade de amostras');
-  ylabel('Erro');
-  legend('Erro de treinamento', 'Erro de teste');
+    hold on;
+    plot(ranges, errors(:, 1), 'r-', ranges, errors(:, 2), 'b--');
+    title(sprintf('Curva de aprendizado do %s', name));
+    xlabel('Quantidade de amostras');
+    ylabel('Erro');
+    legend('Erro de treinamento', 'Erro de teste');
   hold off;
