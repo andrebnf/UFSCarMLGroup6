@@ -6,7 +6,12 @@ function [J, grad] = funcaoCusto(theta, X, y, lambda)
 
   h = sigmoid(X * theta);
 
-  J = (1 / m) * ((-y' * log(h)) - ((1 - y') * log(1 - h)));
+  y_logical = (y == 1);
+
+  J = sum(-log(h(y_logical))) + sum(-log(1 - h(~y_logical)));
+  J = (1 / m) * J;
+
+  % J = (1 / m) * ((-y' * log(h)) - ((1 - y') * log(1 - h)));
 
   grad = (1 / m) * X' * (h - y);
 
