@@ -10,15 +10,15 @@
 %% Inicializacao
 clear ; close all; clc;
 
-GRID_SEARCH = true;
+GRID_SEARCH = false;
 
 try
-  matlabpool
+  matlabpool;
 catch
   try
-    parpool
+    parpool;
   catch
-    fprintf('(Nao foi encontrado nenhum metodo para computacao paralela, iniciando sem.)\n\n');
+    fprintf('Nao foi encontrado nenhum metodo para computacao paralela (ou ja esta rodando)\n\n');
   end
 end
 
@@ -35,7 +35,7 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1, 10000);
+[df, losses] = importfile('train_v2.mat', 1);
 
 ptm(df);
 
@@ -50,8 +50,9 @@ ptm(df);
 
 gs = struct;
 
-gs.kNN = 0;
-gs.reglog = 0;
+% Dados encontrados em grid searches (para nao precisar executa-los)
+gs.kNN = 136;
+gs.reglog = 110;
 
 if GRID_SEARCH
   gs = do_grid_search(dfx, losses);

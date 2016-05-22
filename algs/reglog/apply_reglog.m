@@ -14,8 +14,7 @@ function [labels, cost, theta] = apply_reglog(observations, dataframe, target_cl
   %  Executa fminunc para encontrar o theta otimo
   %  A funcao retornara theta e o custo
   [theta, cost] = ...
-  	fminunc(@(t)(funcaoCusto(t, X, target_class, lambda)), theta_inicial, opcoes);
+  	fminunc(@(t)(funcaoCustoRegLog(t, X, target_class, lambda)), theta_inicial, opcoes);
 
   theta_matrix = repmat(theta', m2, 1);
-
   labels = sigmoid(sum(T .* theta_matrix, 2)) >= 0.5;

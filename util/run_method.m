@@ -27,7 +27,8 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
     [predicted, training_err, rest{:}] = method(...
       testing, training(1 : n, :), training_labels(1 : n, :), varargin{:});
 
-    testing_err = err_method(predicted, testing_labels, testing, varargin{:}, rest{:});
+    testing_err = err_method(...
+      predicted, testing_labels, testing, varargin{:}, rest{:});
 
     errors(i, :) = [training_err testing_err];
 
@@ -37,7 +38,7 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
   fprintf('\n\nEstatisticas para o %s:\n\n', name);
   disp(EVALUATES(N));
 
-  statistic = EVALUATES(N);
+  statistic = EVALUATES;
 
   disp(errors);
 
