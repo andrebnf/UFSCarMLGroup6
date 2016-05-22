@@ -22,7 +22,7 @@ catch
   end
 end
 
-%% Carrega funcoes de selecao de atributos
+%% Carrega scripts
 addpath('./feature_selection');
 addpath('./model_selection');
 addpath('./util');
@@ -35,20 +35,28 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1);
+[df, losses] = importfile('train_v2.mat', 1, 100);
 
 ptm(df);
 
 % Realiza operacoes nas features e observacoes
 [dfx, losses, U, S] = analise(df, losses);
 
-%clear df;       sugestao, verificar
+% Inicializa variaveis uteis
+
+gs = struct;
+
+losses_logical = losses > 0;
+
+losses_bool = double(losses_logical);
+dfx_loss = dfx(losses_logical, :);
+losses_loss = losses(losses_logical);
+
+% TODO: clear df
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRID SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-gs = struct;
 
 % Dados encontrados em grid searches (para nao precisar executa-los)
 gs.kNN = 136;
@@ -62,8 +70,15 @@ end
 % CLASSIFICADORES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-losses_bool = double(losses > 0);
+% run_method('kNN', ...
+%   dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
+%
+% run_method('Regressao logistica', ...
+%   dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
 
-run_method('kNN', dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REGRESSORES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-run_method('Regressao logistica', dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
+run_method('Regressao linear', ...
+  dfx_loss, losses_loss, @apply_reglin, @reglin_error);

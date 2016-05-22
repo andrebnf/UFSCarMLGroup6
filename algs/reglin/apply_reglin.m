@@ -1,35 +1,21 @@
-function [theta] = apply_reglin( dataframe, y )
+function [estimates, cost, theta] = apply_reglin(observations, dataframe, target_class, varargin)
+  [m, n] = size(dataframe);
+  [m2, n2] = size(observations);
 
-fprintf('Calculando Gradiente Descente ...\n')
+  X = [ones(m, 1) dataframe];
+  T = [ones(m2, 1) observations];
 
-[m_, n] = size(dataframe);
+  %  Inicializa os parametros que serao ajustados
+  theta_inicial = zeros(n + 1, 1);
 
-m = length(y);
+  %  Definicao das opcoes para fminunc
+  opcoes = optimset('GradObj', 'on', 'MaxIter', 400, 'Display', 'off');
 
+  %  Executa fminunc para encontrar o theta otimo
+  %  A funcao retornara theta e o custo
+  [theta, cost] = ...
+  	fminunc(@(t)(funcaoCusto(t, X, target_class)), theta_inicial, opcoes);
 
-
-
-X = [ones(m, 1), dataframe]; % Adicionar uma coluna de 1s em x
-%theta = zeros(2, 1); % Inicializa parmetros que serao ajustados
-theta = zeros(n + 1, 1); % Inicializa parmetros que serao ajustados
-
-
-
-
-
-% Algumas configuracoes do gradiente descente
-iteracoes = 1500;
-alpha = 0.01;
-
-% calcula e exibe o custo inicial
-%J = funcaoCusto(X, y, theta);
-
-
-% chama o metodo do gradiente descente
-% VOCE PRECISA COMPLETAR O CODIGO GRADIENTEDESCENTE.M
-[theta] = gradienteDescente(X, y, theta, alpha, iteracoes);
-
-
-
+  theta_matrix = repmat(theta', m2, 1);
+  estimates = T .* theta_matrix;
 end
-
