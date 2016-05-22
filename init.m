@@ -35,7 +35,7 @@ addpath('./algs/pca');
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
 
-[df, losses] = importfile('train_v2.mat', 1, 100);
+[df, losses] = importfile('train_v2.mat', 1);
 
 ptm(df);
 
@@ -70,11 +70,14 @@ end
 % CLASSIFICADORES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% run_method('kNN', ...
-%   dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
-%
-% run_method('Regressao logistica', ...
-%   dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
+run_method('kNN', ...
+  dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
+
+run_method('Regressao logistica', ...
+  dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
+
+run_method('Naive Bayes', ...
+  dfx, losses_bool, @apply_bayes, @bayes_error);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REGRESSORES
