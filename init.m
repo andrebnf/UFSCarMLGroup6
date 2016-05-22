@@ -31,6 +31,7 @@ addpath('./algs/knn');
 addpath('./algs/reglin');
 addpath('./algs/reglog');
 addpath('./algs/pca');
+addpath('./algs/bayes');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');

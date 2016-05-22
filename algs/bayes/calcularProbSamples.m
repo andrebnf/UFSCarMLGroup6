@@ -8,7 +8,7 @@ function p = calcularProbSamples(samples, probabilities, total_class_prob, lapla
 
     for j = 1 : n
       if isnan(samples(i, j))
-        p(i) = laplacian(j);
+        p(i) = 1 / laplacian(j);
       else
         p(i) = p(i) * probabilities(j, samples(i, j));
       end
