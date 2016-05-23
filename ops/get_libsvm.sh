@@ -8,6 +8,8 @@ unzip -q ./_tmp.zip
 
 rm ./_tmp.zip
 
-cd ./libsvm*
+mv ./libsvm* ./libsvm
+
+cd libsvm
 
 matlab -nodesktop -nosplash -nojvm < ../../../ops/compilesvm.m
