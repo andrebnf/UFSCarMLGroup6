@@ -32,6 +32,7 @@ addpath('./algs/reglin');
 addpath('./algs/reglog');
 addpath('./algs/pca');
 addpath('./algs/bayes');
+addpath('./algs/svm');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
@@ -43,6 +44,8 @@ ptm(df);
 % Realiza operacoes nas features e observacoes
 [dfx, losses, U, S] = analise(df, losses);
 
+clear df;
+
 % Inicializa variaveis uteis
 
 gs = struct;
@@ -53,7 +56,7 @@ losses_bool = double(losses_logical);
 dfx_loss = dfx(losses_logical, :);
 losses_loss = losses(losses_logical);
 
-% TODO: clear df
+% Aleatoriza amostras
 
 perm = randperm(size(dfx, 1));
 dfx = dfx(perm, :);
