@@ -1,2 +1,3 @@
 *.csv
 *.mat
+algs/svm/libsvm*
