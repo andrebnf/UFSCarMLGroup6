@@ -10,6 +10,6 @@ rm ./_tmp.zip
 
 mv ./libsvm* ./libsvm
 
-cd libsvm
+cd libsvm;
 
 matlab -nodesktop -nosplash -nojvm < ../../../ops/compilesvm.m

@@ -69,6 +69,7 @@ losses_bool = losses_bool(perm);
 % Dados encontrados em grid searches (para nao precisar executa-los)
 gs.kNN = 136;
 gs.reglog = 110;
+gs.svm = 1
 
 if GRID_SEARCH
   gs = do_grid_search(dfx, losses);
@@ -86,6 +87,9 @@ run_method('Regressao logistica', ...
 
 run_method('Naive Bayes', ...
   dfx, losses_bool, @apply_bayes, @bayes_error);
+
+run_method('SVM', ...
+  dfx, losses_bool, @apply_svm, @svm_error, gs.svm);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REGRESSORES
