@@ -55,6 +55,10 @@ losses_loss = losses(losses_logical);
 
 % TODO: clear df
 
+perm = randperm(size(dfx, 1));
+dfx = dfx(perm, :);
+losses_bool = losses_bool(perm);
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRID SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
