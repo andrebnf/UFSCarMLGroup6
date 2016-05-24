@@ -30,3 +30,10 @@ function bests = do_grid_search(dfx, losses)
 
   bests.reglog = call_grid('Regressao Logistica', 'lambda', ...
     constants, training, training_labels_bool, @apply_reglog, @reglog_error);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  constants = (1/20 : 8);
+
+  bests.svm = call_grid('SVM', 'C', ...
+    constants, training, training_labels_bool, @apply_svm, @svm_error);

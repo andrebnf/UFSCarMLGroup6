@@ -1,13 +1,15 @@
 #!/bin/bash
 
-cd ./algs/svm/
+cd ./algs/svm/;
 
-wget -O ./_tmp.zip http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libsvm.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libsvm+zip
+wget -O ./_tmp.zip http://www.csie.ntu.edu.tw/~cjlin/cgi-bin/libsvm.cgi?+http://www.csie.ntu.edu.tw/~cjlin/libsvm+zip;
 
-unzip -q ./_tmp.zip
+unzip -q ./_tmp.zip;
 
-rm ./_tmp.zip
+rm ./_tmp.zip;
 
-cd ./libsvm*
+mv ./libsvm* ./libsvm;
 
-matlab -nodesktop -nosplash -nojvm < ../../../ops/compilesvm.m
+cd libsvm;
+
+matlab -nodesktop -nosplash -nojvm < ../../../ops/compilesvm.m;
