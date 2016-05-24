@@ -16,6 +16,5 @@ function [estimates, cost, theta] = apply_reglin(observations, dataframe, target
   [theta, cost] = ...
   	fminunc(@(t)(funcaoCusto(t, X, target_class)), theta_inicial, opcoes);
 
-  theta_matrix = repmat(theta', m2, 1);
-  estimates = T .* theta_matrix;
+  estimates = T * theta;
 end

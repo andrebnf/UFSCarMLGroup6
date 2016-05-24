@@ -17,7 +17,7 @@ function [labels, cost] = apply_knn(observations, dataframe, target_class, K, va
     labels_c(i) = knn(normalized(i, :), normalized, target_class, K);
   end
 
-  cost = knn_error(labels_c, target_class);
+  cost = knn_error(labels_c', target_class);
 
   % Computa labels
   labels = [];
@@ -25,3 +25,5 @@ function [labels, cost] = apply_knn(observations, dataframe, target_class, K, va
   parfor i = 1 : size(observations, 1)
     labels(i) = knn(X(i, :), normalized, target_class, K);
   end
+
+  labels = labels';
