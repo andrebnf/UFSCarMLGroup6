@@ -21,3 +21,5 @@ function data = evaluate(labels, expected)
 
   data.f_p = 2 * (data.rec_p * data.prec_p) / (data.rec_p + data.prec_p);
   data.f_n = 2 * (data.rec_n * data.prec_n) / (data.rec_n + data.prec_n);
+
+  data.mse = sum((labels - expected) .^ 2) / length(labels);

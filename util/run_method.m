@@ -25,7 +25,7 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
     rest = cell(1, nOutArgs - 2);
 
     [predicted, training_err, rest{:}] = method(...
-      testing, training(1 : n, :), training_labels(1 : n, :), varargin{:});
+      testing, training(1 : n, :), training_labels(1 : n, :), varargin{:}, testing_labels);
 
     testing_err = err_method(...
       predicted, testing_labels, testing, varargin{:}, rest{:});

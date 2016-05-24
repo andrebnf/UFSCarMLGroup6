@@ -33,7 +33,7 @@ function bests = do_grid_search(dfx, losses)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  constants = (1/20 : 10);
+  constants = (1/20 : 8);
 
-  bests.svm = call_grid('svm', 'C', ...
+  bests.svm = call_grid('SVM', 'C', ...
     constants, training, training_labels_bool, @apply_svm, @svm_error);

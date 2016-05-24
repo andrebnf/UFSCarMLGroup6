@@ -69,7 +69,7 @@ losses_bool = losses_bool(perm);
 % Dados encontrados em grid searches (para nao precisar executa-los)
 gs.kNN = 136;
 gs.reglog = 110;
-gs.svm = 1
+gs.svm = 1;
 
 if GRID_SEARCH
   gs = do_grid_search(dfx, losses);
