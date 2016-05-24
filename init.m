@@ -8,9 +8,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Inicializacao
-clear ; close all; clc;
+clear; close all; clc;
 
-GRID_SEARCH = false;
+GRID_SEARCH = {};
 
 try
   matlabpool;
@@ -66,14 +66,7 @@ losses_bool = losses_bool(perm);
 % GRID SEARCH
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Dados encontrados em grid searches (para nao precisar executa-los)
-gs.kNN = 136;
-gs.reglog = 110;
-gs.svm = 1;
-
-if GRID_SEARCH
-  gs = do_grid_search(dfx, losses);
-end
+gs = do_grid_search(dfx, losses, GRID_SEARCH);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CLASSIFICADORES

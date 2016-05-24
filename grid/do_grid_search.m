@@ -1,39 +1,58 @@
-function bests = do_grid_search(dfx, losses)
+function bests = do_grid_search(dfx, losses, grid_algs_enabled)
+  bests = struct;
+
+  bests.kNN = 136;
+  bests.reglog = 110;
+  bests.svm = 1;
+
+  if isempty(grid_algs_enabled)
+    return;
+  end
+
   % Separa dados para grid search
   fprintf('Separando dados para grid search...\n\n');
   [~, training, ~, training_labels] = separate_data(dfx, losses, .3);
 
   training_labels_bool = double(training_labels > 0);
 
-  bests = struct;
-
   fprintf('Iniciando grid search...\n\n');
 
+  disp(grid_algs_enabled);
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  upper_bound = floor(sqrt(size(training, 1)));
+  if find(strcmp(grid_algs_enabled, 'knn')) > 0
+    upper_bound = floor(sqrt(size(training, 1)));
 
-  if mod(upper_bound, 2) == 0
-    upper_bound = upper_bound - 1;
+    if mod(upper_bound, 2) == 0
+      upper_bound = upper_bound - 1;
+    end
+
+    constants = [primes(17) ceil(upper_bound / 2) upper_bound];
+
+    constants = unique(constants(2 : end));
+
+    bests.kNN = call_grid('kNN', 'K', ...
+     constants, training, training_labels_bool, @apply_knn, @knn_error);
   end
 
-  constants = [primes(17) ceil(upper_bound / 2) upper_bound];
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  constants = unique(constants(2 : end));
+  if find(strcmp(grid_algs_enabled, 'reglog')) > 0
+    constants = (20 : 6 : 110);
 
-  bests.kNN = call_grid('kNN', 'K', ...
-   constants, training, training_labels_bool, @apply_knn, @knn_error);
+    bests.reglog = call_grid('Regressao Logistica', 'lambda', ...
+      constants, training, training_labels_bool, @apply_reglog, @reglog_error);
+  end
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  constants = (20 : 6 : 110);
+  if find(strcmp(grid_algs_enabled, 'svm')) > 0
+    constants = (0.003 : .001  : 0.01);
 
-  bests.reglog = call_grid('Regressao Logistica', 'lambda', ...
-    constants, training, training_labels_bool, @apply_reglog, @reglog_error);
+    bests.svm = call_grid('SVM', 'C', ...
+      constants, training, training_labels_bool, @apply_svm, @svm_error);
+  end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-  constants = (1/20 : 8);
-
-  bests.svm = call_grid('SVM', 'C', ...
-    constants, training, training_labels_bool, @apply_svm, @svm_error);
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end
