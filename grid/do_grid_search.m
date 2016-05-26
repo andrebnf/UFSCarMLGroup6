@@ -3,7 +3,8 @@ function bests = do_grid_search(dfx, losses, grid_algs_enabled)
 
   bests.kNN = 136;
   bests.reglog = 110;
-  bests.svm = 1;
+  bests.svm = 0.003;
+  bests.reglin = 4;
 
   if isempty(grid_algs_enabled)
     return;
@@ -52,6 +53,15 @@ function bests = do_grid_search(dfx, losses, grid_algs_enabled)
 
     bests.svm = call_grid('SVM', 'C', ...
       constants, training, training_labels_bool, @apply_svm, @svm_error);
+  end
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  if find(strcmp(grid_algs_enabled, 'reglin')) > 0
+    constants = [1, 3, 4];
+
+    bests.reglin = call_grid('Regressao Linear', 'Grau do polinomio', ...
+      constants, training, training_labels_bool, @apply_reglin, @reglin_error);
   end
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

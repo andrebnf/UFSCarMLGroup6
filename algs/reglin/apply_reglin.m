@@ -1,4 +1,7 @@
-function [estimates, cost, theta] = apply_reglin(observations, dataframe, target_class, varargin)
+function [estimates, cost, theta] = apply_reglin(observations, dataframe, target_class, degree, varargin)
+  dataframe = add_more_features(dataframe, degree);
+  observations = add_more_features(observations, degree);
+
   [m, n] = size(dataframe);
   [m2, n2] = size(observations);
 
