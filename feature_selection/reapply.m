@@ -1,13 +1,12 @@
-function [df, losses, modifiers] = analise(dataframe, labels)
-  modifiers = struct;
-
+function [df, ids] = reapply(dataframe, modifiers)
   df = dataframe;
-  losses = labels;
 
   fprintf('Limpando dados...\n\n');
 
   % Remove a coluna de ids
   fprintf('\tRemovendo coluna de ids...\n\n');
+
+  ids = df(:, 1);
 
   df(:, 1) = [];
 
@@ -16,13 +15,8 @@ function [df, losses, modifiers] = analise(dataframe, labels)
   % Substitui observacoes com NaN pela media ou moda dependendo do tipo
   fprintf('\tImputando valores desconhecidos...\n\n');
 
-  modifiers.is_categorical = categorical_features(df);
-
   C = df(:, modifiers.is_categorical);
   R = df(:, ~modifiers.is_categorical);
-
-  modifiers.MODA = mode(C);
-  modifiers.MEDIA = nanmean(R);
 
   [~, c_c] = find(isnan(C));
   [~, c_r] = find(isnan(R));
@@ -37,9 +31,8 @@ function [df, losses, modifiers] = analise(dataframe, labels)
   % Remove colunas duplicadas para evitar bias
   fprintf('\tRemovendo features duplicadas...\n\n');
 
-  [df, modifiers.columns_repeated, ~] = unique(df', 'rows');
-
-  df = df';
+  A = df';
+  df = A(modifiers.columns_repeated, :)';
 
   ptm(df);
 
@@ -48,7 +41,7 @@ function [df, losses, modifiers] = analise(dataframe, labels)
   % Remove todas as colunas com desvio padrao = 0
   fprintf('\tRemovendo todas as colunas com desvio padrao = 0...\n\n');
 
-  [df, modifiers.columns_deviation] = remove_by_deviation(df, 0);
+  df(:, modifiers.columns_deviation) = [];
 
   ptm(df);
 
@@ -58,6 +51,6 @@ function [df, losses, modifiers] = analise(dataframe, labels)
   df = normalize(df);
 
   % Aplica PCA
-  [df, modifiers.U, modifiers.S] = apply_pca(df, 241);
+  df = projetarDados(df, modifiers.U, 241);
 
   ptm(df);
