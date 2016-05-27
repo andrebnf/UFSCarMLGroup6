@@ -4,7 +4,7 @@ function bests = do_grid_search(dfx, losses, grid_algs_enabled)
   bests.kNN = 136;
   bests.reglog = 110;
   bests.svm = 0.003;
-  bests.reglin = 4;
+  bests.reglin = 1;
 
   if isempty(grid_algs_enabled)
     return;
