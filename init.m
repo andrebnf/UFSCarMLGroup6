@@ -42,7 +42,7 @@ fprintf('Carregando os dados...\n\n');
 ptm(df);
 
 % Realiza operacoes nas features e observacoes
-[dfx, losses, U, S] = analise(df, losses);
+[dfx, losses, modifiers] = analise(df, losses);
 
 clear df;
 
@@ -73,20 +73,32 @@ gs = do_grid_search(dfx, losses, GRID_SEARCH);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 run_method('kNN', ...
-  dfx, losses_bool, @apply_knn, @knn_error, gs.kNN);
+  dfx, losses_bool, @apply_knn, @knn_error, false, gs.kNN);
 
 run_method('Regressao logistica', ...
-  dfx, losses_bool, @apply_reglog, @reglog_error, gs.reglog);
+  dfx, losses_bool, @apply_reglog, @reglog_error, false, gs.reglog);
 
 run_method('Naive Bayes', ...
-  dfx, losses_bool, @apply_bayes, @bayes_error);
+  dfx, losses_bool, @apply_bayes, @bayes_error, false);
 
-run_method('SVM', ...
-  dfx, losses_bool, @apply_svm, @svm_error, gs.svm);
+modelSVM = run_method('SVM', ...
+  dfx, losses_bool, @apply_svm, @svm_error, false, gs.svm);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REGRESSORES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-run_method('Regressao linear', ...
-  dfx_loss, losses_loss, @apply_reglin, @reglin_error, gs.reglin);
+modelRegLin = run_method('Regressao linear', ...
+  dfx_loss, losses_loss, @apply_reglin, @reglin_error, false, gs.reglin);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SALVA DADOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+fprintf('Salvando os dados...\n\n');
+
+models = struct;
+models.classificador = modelSVM{:};
+models.regressor = modelRegLin{:};
+
+save('loan-predict.mat', 'modifiers', 'models');

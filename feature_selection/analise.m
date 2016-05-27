@@ -1,4 +1,6 @@
-function [df, losses, U, S] = analise(dataframe, labels)
+function [df, losses, modifiers] = analise(dataframe, labels)
+  modifiers = struct;
+
   df = dataframe;
   losses = labels;
 
@@ -19,14 +21,14 @@ function [df, losses, U, S] = analise(dataframe, labels)
   C = df(:, is_categorical);
   R = df(:, ~is_categorical);
 
-  MODA = mode(C);
-  MEDIA = nanmean(R);
+  modifiers.MODA = mode(C);
+  modifiers.MEDIA = nanmean(R);
 
   [~, c_c] = find(isnan(C));
   [~, c_r] = find(isnan(R));
 
-  C(isnan(C)) = MODA(c_c);
-  R(isnan(R)) = MEDIA(c_r);
+  C(isnan(C)) = modifiers.MODA(c_c);
+  R(isnan(R)) = modifiers.MEDIA(c_r);
 
   df = [C R];
 
@@ -35,7 +37,9 @@ function [df, losses, U, S] = analise(dataframe, labels)
   % Remove colunas duplicadas para evitar bias
   fprintf('\tRemovendo features duplicadas...\n\n');
 
-  df = unique(df', 'rows')';
+  [df, modifiers.columns_repeated, ~] = unique(df', 'rows');
+
+  df = df';
 
   ptm(df);
 
@@ -44,7 +48,7 @@ function [df, losses, U, S] = analise(dataframe, labels)
   % Remove todas as colunas com desvio padrao = 0
   fprintf('\tRemovendo todas as colunas com desvio padrao = 0...\n\n');
 
-  [df, ~] = remove_by_deviation(df, 0);
+  [df, modifiers.columns_deviation] = remove_by_deviation(df, 0);
 
   ptm(df);
 
@@ -54,6 +58,6 @@ function [df, losses, U, S] = analise(dataframe, labels)
   df = normalize(df);
 
   % Aplica PCA
-  [df, U, S] = apply_pca(df, 241);
+  [df, modifiers.U, modifiers.S] = apply_pca(df, 241);
 
   ptm(df);

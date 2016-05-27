@@ -1,4 +1,4 @@
-function [errors, statistic, testing, training, testing_labels, training_labels] = run_method(name, dataframe, labels, method, err_method, varargin)
+function [model] = run_method(name, dataframe, labels, method, err_method, LAST_ONLY, varargin)
   disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
   fprintf('  %s\n', name);
   disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
@@ -17,7 +17,15 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
 
   fprintf('\nRodando o %s...\n\n\tN = ', name);
 
-  parfor i = 1 : N
+  model = cell(N, nOutArgs - 2);
+
+  j = 1;
+
+  if LAST_ONLY
+    j = N;
+  end
+
+  parfor i = j : N
     n = ranges(i);
 
     fprintf('%d ', n);
@@ -33,7 +41,11 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
     errors(i, :) = [training_err testing_err];
 
     EVALUATES(i) = evaluate(predicted, testing_labels);
+
+    model{i} = rest;
   end
+
+  model = model{N};
 
   fprintf('\n\nEstatisticas para o %s:\n\n', name);
   disp(EVALUATES(N));
@@ -42,12 +54,14 @@ function [errors, statistic, testing, training, testing_labels, training_labels]
 
   disp(errors);
 
-  % Plota curva de aprendizado
-  figure;
-    hold on;
-    plot(ranges, errors(:, 1), 'r-', ranges, errors(:, 2), 'b--');
-    title(sprintf('Curva de aprendizado do %s', name));
-    xlabel('Quantidade de amostras');
-    ylabel('Erro');
-    legend('Erro de treinamento', 'Erro de teste');
-  hold off;
+  if ~LAST_ONLY
+    % Plota curva de aprendizado
+    figure;
+      hold on;
+      plot(ranges, errors(:, 1), 'r-', ranges, errors(:, 2), 'b--');
+      title(sprintf('Curva de aprendizado do %s', name));
+      xlabel('Quantidade de amostras');
+      ylabel('Erro');
+      legend('Erro de treinamento', 'Erro de teste');
+    hold off;
+  end
