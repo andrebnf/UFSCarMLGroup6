@@ -22,7 +22,7 @@ fprintf('Carregando os dados...\n\n');
 
 load('loan-predict.mat');
 
-[df, losses] = importfile('test_v2.mat', 1, 100);
+[df, losses] = importfile('test_v2.mat', 1);
 
 % Realiza operacoes nas features e observacoes
 [df, ids] = reapply([df losses], modifiers);
