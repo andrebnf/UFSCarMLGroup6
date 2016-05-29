@@ -1,4 +1,4 @@
-function [df, losses, modifiers] = analise(dataframe, labels)
+function [df, losses, modifiers] = analise(dataframe, labels, PCA)
   modifiers = struct;
 
   df = dataframe;
@@ -58,6 +58,6 @@ function [df, losses, modifiers] = analise(dataframe, labels)
   df = normalize(df);
 
   % Aplica PCA
-  [df, modifiers.U, modifiers.S] = apply_pca(df, 241);
+  [df, modifiers.U, modifiers.S] = apply_pca(df, PCA);
 
   ptm(df);

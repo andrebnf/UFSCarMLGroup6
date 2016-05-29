@@ -33,6 +33,7 @@ addpath('./algs/reglog');
 addpath('./algs/pca');
 addpath('./algs/bayes');
 addpath('./algs/svm');
+addpath('./algs/ann');
 
 %% Carrega os dados do arquivo
 fprintf('Carregando os dados...\n\n');
@@ -42,7 +43,7 @@ fprintf('Carregando os dados...\n\n');
 ptm(df);
 
 % Realiza operacoes nas features e observacoes
-[dfx, losses, modifiers] = analise(df, losses);
+[dfx, losses, modifiers] = analise(df, losses, 241);
 
 clear df;
 
@@ -83,6 +84,10 @@ run_method('Naive Bayes', ...
 
 modelSVM = run_method('SVM', ...
   dfx, losses_bool, @apply_svm, @svm_error, false, gs.svm);
+
+% hidden layers, neurons, outputs, lambda
+run_method('Redes Neurais artificiais', ...
+  dfx, losses_bool, @apply_ann, @ann_error, false, 1, 5, 2, 1);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % REGRESSORES
